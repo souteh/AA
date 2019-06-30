@@ -1,0 +1,255 @@
+{
+  "historyExport":[
+    {
+      "id": "1",
+      "generatedDate": "10/06/2019",
+      "endDate": "10/06/2019",
+      "executedBy": "USER1",
+      "number": 455,
+      "processingTime": "10/06/2019",
+      "exportStatus": "ONGOING",
+      "documentType" : "EXCEL"
+    },
+    {
+      "id": "2",
+      "generatedDate": "10/06/2019",
+      "endDate": "10/06/2019",
+      "executedBy": "USER2",
+      "number": 456,
+      "processingTime": "10/06/2019",
+      "exportStatus": "SUCCESS",
+      "documentType" : "CSV"
+    },
+    {
+      "id": "3",
+      "generatedDate": "10/06/2019",
+      "endDate": "10/06/2019",
+      "executedBy": "USER3",
+      "number": 457,
+      "processingTime": "10/06/2019",
+      "exportStatus": "FAIL",
+      "documentType" : "PDF"
+    }
+  ],
+  "bulkOperationLog": [
+    {
+      "id": 32,
+      "operationType": "CREATION",
+      "inputFile": "CREATION_1558978683431.csv",
+      "creationDate": "2019-05-27T17:38:03.000+0000",
+      "startDate": "2019-05-27T17:38:04.000+0000",
+      "endDate": "2019-05-27T17:38:16.000+0000",
+      "status": "SUCCESS",
+      "user": null,
+      "successCount": 83,
+      "failureCount": 17,
+      "errorFile": "DELTA_1558978683431.csv",
+      "details": [
+        {
+          "id": 139,
+          "line": 2,
+          "field": "Activé",
+          "error": "Valeur invalide"
+        },
+        {
+          "id": 140,
+          "line": 2,
+          "field": "Rôle",
+          "error": "Code d'import invalide"
+        },
+        {
+          "id": 141,
+          "line": 8,
+          "field": "Activé",
+          "error": "Valeur invalide"
+        },
+        {
+          "id": 142,
+          "line": 8,
+          "field": "Rôle",
+          "error": "Code d'import invalide"
+        },
+        {
+          "id": 143,
+          "line": 14,
+          "field": "Activé",
+          "error": "Valeur invalide"
+        },
+        {
+          "id": 144,
+          "line": 14,
+          "field": "Rôle",
+          "error": "Code d'import invalide"
+        },
+        {
+          "id": 145,
+          "line": 20,
+          "field": "Activé",
+          "error": "Valeur invalide"
+        },
+        {
+          "id": 146,
+          "line": 20,
+          "field": "Rôle",
+          "error": "Code d'import invalide"
+        },
+        {
+          "id": 147,
+          "line": 26,
+          "field": "Activé",
+          "error": "Valeur invalide"
+        },
+        {
+          "id": 148,
+          "line": 26,
+          "field": "Rôle",
+          "error": "Code d'import invalide"
+        },
+        {
+          "id": 149,
+          "line": 32,
+          "field": "Activé",
+          "error": "Valeur invalide"
+        },
+        {
+          "id": 150,
+          "line": 32,
+          "field": "Rôle",
+          "error": "Code d'import invalide"
+        },
+        {
+          "id": 151,
+          "line": 38,
+          "field": "Activé",
+          "error": "Valeur invalide"
+        },
+        {
+          "id": 152,
+          "line": 38,
+          "field": "Rôle",
+          "error": "Code d'import invalide"
+        },
+        {
+          "id": 153,
+          "line": 44,
+          "field": "Activé",
+          "error": "Valeur invalide"
+        },
+        {
+          "id": 154,
+          "line": 44,
+          "field": "Rôle",
+          "error": "Code d'import invalide"
+        },
+        {
+          "id": 155,
+          "line": 50,
+          "field": "Activé",
+          "error": "Valeur invalide"
+        },
+        {
+          "id": 156,
+          "line": 50,
+          "field": "Rôle",
+          "error": "Code d'import invalide"
+        },
+        {
+          "id": 157,
+          "line": 56,
+          "field": "Activé",
+          "error": "Valeur invalide"
+        },
+        {
+          "id": 158,
+          "line": 56,
+          "field": "Rôle",
+          "error": "Code d'import invalide"
+        },
+        {
+          "id": 159,
+          "line": 62,
+          "field": "Activé",
+          "error": "Valeur invalide"
+        },
+        {
+          "id": 160,
+          "line": 62,
+          "field": "Rôle",
+          "error": "Code d'import invalide"
+        },
+        {
+          "id": 161,
+          "line": 68,
+          "field": "Activé",
+          "error": "Valeur invalide"
+        },
+        {
+          "id": 162,
+          "line": 68,
+          "field": "Rôle",
+          "error": "Code d'import invalide"
+        },
+        {
+          "id": 163,
+          "line": 74,
+          "field": "Activé",
+          "error": "Valeur invalide"
+        },
+        {
+          "id": 164,
+          "line": 74,
+          "field": "Rôle",
+          "error": "Code d'import invalide"
+        },
+        {
+          "id": 165,
+          "line": 80,
+          "field": "Activé",
+          "error": "Valeur invalide"
+        },
+        {
+          "id": 166,
+          "line": 80,
+          "field": "Rôle",
+          "error": "Code d'import invalide"
+        },
+        {
+          "id": 167,
+          "line": 86,
+          "field": "Activé",
+          "error": "Valeur invalide"
+        },
+        {
+          "id": 168,
+          "line": 86,
+          "field": "Rôle",
+          "error": "Code d'import invalide"
+        },
+        {
+          "id": 169,
+          "line": 92,
+          "field": "Activé",
+          "error": "Valeur invalide"
+        },
+        {
+          "id": 170,
+          "line": 92,
+          "field": "Rôle",
+          "error": "Code d'import invalide"
+        },
+        {
+          "id": 171,
+          "line": 98,
+          "field": "Activé",
+          "error": "Valeur invalide"
+        },
+        {
+          "id": 172,
+          "line": 98,
+          "field": "Rôle",
+          "error": "Code d'import invalide"
+        }
+      ]
+    }
+  ]
+}

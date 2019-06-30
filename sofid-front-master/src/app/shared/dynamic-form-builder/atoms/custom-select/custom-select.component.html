@@ -1,0 +1,26 @@
+<div [formGroup]="form">
+    <ng-select  
+    class='custom'
+    [class.custom-error]="form.controls[field.id].invalid && (form.controls[field.id].dirty || form.controls[field.id].touched)"
+    *ngIf="!field.isAutoComplete"
+    [multiple]="field.isMultiple"
+    [items]="refData$ | async"
+    bindLabel="value"
+    [formControlName]="field.id"
+    id="{{field.id}}"
+ >
+</ng-select>
+<ng-select *ngIf="field.isAutoComplete"
+class='custom'
+[class.custom-error]="form.controls[field.id].invalid && (form.controls[field.id].dirty || form.controls[field.id].touched)"
+[items]="autoCompliteData$ | async"
+                   bindLabel="value"
+                   [addTag]="true"
+                   [multiple]="field.isMultiple"
+                   [hideSelected]="true"
+                   [formControlName]="field.id"
+                   [loading]="autoCompliteDataLoading"
+                   [typeahead]="autoCompliteDatainput$"
+                >
+        </ng-select>
+</div>

@@ -1,0 +1,100 @@
+<div class="page" dir="{{defaultLanguage.rtl ? 'rtl' : '' }}" [class.text-right]="defaultLanguage.rtl">
+    <div class="row mt-3">
+        <div class="col-3">
+            <div class="form-group">
+                <label for="column" class="color-label">{{"EXPORT_USER.START_DATE" | translate}} </label>
+                <input id="sd" class="form-control" [(ngModel)]="startDate" [owlDateTime]="sd"
+                    [owlDateTimeTrigger]="sd">
+                <owl-date-time #sd [pickerType]="'calendar'"></owl-date-time>
+                <button class="btn calendar" [owlDateTimeTrigger]="sd" type="button">
+                    <svg-icon src="../../../../../assets/svg/calendar_icon.svg" [stretch]="true" [applyCss]="true"
+                        class="icon-search" [svgStyle]="{ 'width.px':20.20,'height.px':20.20 }">
+                    </svg-icon>
+                </button>
+            </div>
+        </div>
+
+        <div class="col-3">
+            <div class="form-group">
+                <label for="ligne" class="color-label">{{"EXPORT_USER.END_DATE" | translate}} </label>
+                <input id="ed" class="form-control" [(ngModel)]="endDate" [owlDateTime]="ed" [owlDateTimeTrigger]="ed">
+                <owl-date-time #ed [pickerType]="'calendar'"></owl-date-time>
+                <button class="btn calendar" [owlDateTimeTrigger]="ed" type="button">
+                    <svg-icon src="../../../../../assets/svg/calendar_icon.svg" [stretch]="true" [applyCss]="true"
+                        class="icon-search" [svgStyle]="{ 'width.px':20.20,'height.px':20.20 }">
+                    </svg-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-3">
+            <div class="form-group">
+                <label for="generatedBy">{{"EXPORT_USER.GENERATED_BY" | translate}}</label>
+                <ng-select id="generatedBy" [multiple]="false" [hideSelected]="true">
+                </ng-select>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-lg-4 col-12">
+            <button id="btnSearch" type="submit" class="btn btn-primary w-25 mr-2"
+                (click)="searchHistoryExport()">{{"EXPORT_USER.BTN_SEARCH" | translate}}</button>
+            <button id="btnInit" type="button"
+                class="btn btn-secondary w-25 ">{{"EXPORT_USER.BTN_INIT" | translate}}</button>
+        </div>
+    </div>
+
+
+
+</div>
+
+<div class="page mt-3" *ngIf="rows && rows.length >0">
+    <app-datatable [data]="rows" [columns]="columns" [selectePage]="currentPage" (selectedPage)="selectedPage($event)"
+        (actionCheck)="onCheck($event)">
+    </app-datatable>
+</div>
+
+<ng-template #statusTmp let-row>
+    <div *ngIf="row.exportStatus==='ONGOING'">
+        <svg-icon src="../../../assets/svg/svg_loader.svg" [applyCss]="true" class="icon-success"
+            [svgStyle]="{ 'width.px':28.18,'height.px':28.18 }">
+        </svg-icon>
+    </div>
+    <div *ngIf="row.exportStatus==='SUCCESS'">
+        <svg-icon src="../../../assets/svg/check.svg" [applyCss]="true" class="icon-success"
+            [svgStyle]="{ 'width.px':28.18,'height.px':28.18 }">
+        </svg-icon>
+    </div>
+    <div *ngIf="row.exportStatus==='FAIL'">
+        <svg-icon src="../../../assets/svg/svg_failed.svg" [applyCss]="true" class="icon-danger"
+            [svgStyle]="{ 'width.px':28.18,'height.px':28.18 }">
+        </svg-icon>
+    </div>
+</ng-template>
+
+<ng-template #documentTypeTmp let-row>
+    <div *ngIf="row.documentType==='PDF'">
+        <a (click)="downloadDocument(row)">
+            <svg-icon src="../../../assets/svg/pdf_icon.svg" [applyCss]="true"
+                [svgStyle]="{ 'width.px':38.18,'height.px':38.18 }">
+            </svg-icon>
+        </a>
+    </div>
+    <div *ngIf="row.documentType==='EXCEL'">
+        <a (click)="downloadDocument(row)">
+            <svg-icon src="../../../assets/svg/excel_icon.svg" [applyCss]="true"
+                [svgStyle]="{ 'width.px':38.18,'height.px':38.18 }">
+            </svg-icon>
+        </a>
+    </div>
+    <div *ngIf="row.documentType==='CSV'">
+        <a (click)="downloadDocument(row)">
+            <svg-icon src="../../../assets/svg/csv_icon.svg" [applyCss]="true"
+                [svgStyle]="{ 'width.px':38.18,'height.px':38.18 }">
+            </svg-icon>
+        </a>
+    </div>
+</ng-template>

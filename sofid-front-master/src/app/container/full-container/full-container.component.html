@@ -1,0 +1,51 @@
+<div class="d-flex h-100" id="body-row">
+        <app-sidebar (collapseProp)='collapeEmiter($event)'></app-sidebar>
+        <div class="container-fluid  mx-0 w-100 pr-0 "
+                [ngClass]="{'sidebar-expanded': !isCollapsed,'sidebar-collapsed': isCollapsed}">
+                <div class="sticky-top top-bar d-flex justify-content-end  align-items-center  px-4">
+                        <button [satPopoverAnchorFor]="p" (click)="p.toggle()" class="btn  profil-btn">
+                                {{username}}
+                                <svg-icon src="./../../../assets/svg/arrow_icon.svg"
+                                        [svgStyle]="{ 'width.px':11 , 'height.px':7 }" [applyCss]="true"
+                                        class="obs-grey-icon">
+                                </svg-icon>
+                        </button>
+                        <sat-popover #p horizontalAlign="center" verticalAlign="above" hasBackdrop>
+                                <div class="info-wrapper">
+                                        <ul class="px-0">
+                                                <li *ngFor="let profilItem of profilItems; let i = index"
+                                                        class="w-100 btn btn-link border-0 profilItem"
+                                                        (click)="p.toggle()" [routerLink]="profilItem.route">
+
+                                                        <div   (click)="action(profilItem.text)"
+                                                                class="d-flex w-100 justify-content-start align-items-center my-1">
+                                                                <span class="icon-profil mr-1">
+                                                                        <svg-icon src="{{profilItem.icon}}"
+                                                                                [applyCss]="true" class="icon-primary"
+                                                                                [svgStyle]="{ 'width.px':18, 'height.px':18 }">
+                                                                        </svg-icon>
+                                                                </span>
+                                                                <span class="title-profil-item mt-1">
+                                                                        {{profilItem.text | translate}} </span>
+                                                        </div>
+
+                                                </li>
+
+                                        </ul>
+                                </div>
+                        </sat-popover>
+                        <svg-icon src="./../../../assets/svg/avatar_icon.svg"
+                                [svgStyle]="{ 'width.px':38 , 'height.px':38 }" [applyCss]="true"
+                                class="rounded-circle">
+                        </svg-icon>
+                </div>
+                <div class="component">
+                        <h1 class="mb-0 mt-2" [class.text-right]="defaultLanguage.rtl">{{title | translate}}</h1>
+                        <breadcrumb [allowBootstrap]="true" [addClass]="'custom-crumbs '" dir="{{defaultLanguage.rtl ? 'rtl' : '' }}"></breadcrumb>
+                        <div class="container-content ">
+                                <router-outlet></router-outlet>
+                        </div>
+                        <app-footer></app-footer>
+                </div>
+        </div>
+</div>

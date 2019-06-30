@@ -1,0 +1,76 @@
+<app-authentication-shell title="{{'AUTHENTICATION.LOGIN.TITLE'| translate}}" [isLoginPage]='true'>
+  <div class="container" dir="{{defaultLanguage.rtl ? 'rtl' : '' }}" [class.text-right]="defaultLanguage.rtl">
+    <div class="row justify-content-lg-center">
+      <div class="col-lg-6">
+        <form [formGroup]="loginForm" (ngSubmit)="submitLogin()" autocomplete="off">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <svg-icon src="../../../../../assets/svg/login.svg" [applyCss]="true" class="icon-black" [svgStyle]="{ 'width.px':18,'height.px':18 }">
+                </svg-icon>
+              </span>
+            </div>
+            <input type="text" class="form-control" id="username" formControlName="username" placeholder="{{'AUTHENTICATION.LOGIN.LOGIN'| translate}}"
+              autocomplete="off">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <svg-icon src="../../../../../assets/svg/locked-padlock.svg" [applyCss]="true" class="icon-black"
+                  [svgStyle]="{ 'width.px':18,'height.px':18 }">
+                </svg-icon>
+              </span>
+            </div>
+            <input type="{{type}}" class="form-control" id="password" formControlName="password" autocomplete="off"
+              placeholder="{{'AUTHENTICATION.LOGIN.PASSWORD'| translate}}">
+            <div class="input-group-append">
+              <span class="input-group-text">
+                <a (click)="changepasswordStat()">
+                  <span *ngIf="showPassword">
+                    <svg-icon src="../../../../../assets/svg/show.svg" [applyCss]="true" class="icon-black" [svgStyle]="{ 'width.px':16,'height.px':16 }">
+                    </svg-icon>
+                  </span>
+                  <span *ngIf="!showPassword">
+                    <svg-icon src="../../../../../assets/svg/hide.svg" [applyCss]="true" class="icon-black" [svgStyle]="{ 'width.px':16,'height.px':16 }">
+                    </svg-icon>
+                  </span>
+                </a>
+              </span>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <svg-icon src="../../../../../assets/svg/langue.svg" [applyCss]="true" class="icon-black" [svgStyle]="{ 'width.px':18,'height.px':18 }">
+                </svg-icon>
+              </span>
+            </div>
+            <select class="form-control" id="language" formControlName="language">
+              <option value="" disabled selected>{{'AUTHENTICATION.LOGIN.LANGUAGE'| translate}}</option>
+              <option *ngFor="let item of langueges" [value]="item.key"> {{item.value}}</option>
+            </select>
+          </div>
+          <div class="row mt-5">
+            <div class="col-6">
+              <div class="checkbox checkbox-primary">
+                <input type="checkbox" class="form-check-input" id="rememberMe" formControlName="rememberMe" (change)="changeLogin()">
+                <label class="form-check-label" for="rememberMe">{{'AUTHENTICATION.LOGIN.SAVE_LOGIN'| translate}}</label>
+              </div>
+            </div>
+            <div class="col-6 text-right">
+              <a class="init-password" href="/authentication/reinitpassword"> {{'AUTHENTICATION.LOGIN.REINIT_PASSWORD'| translate}}</a>
+            </div>
+          </div>
+         <div class="mt-5 w-100">
+           <div class="loader" *ngIf="loader" >
+              <svg-icon src="../../../../../assets/svg/three-dots.svg" [applyCss]="true" class="icon-black" [svgStyle]="{ 'width.px':40,'height.px':40 }">
+              </svg-icon>
+           </div>
+            <button type="submit" class="btn btn-primary w-100 " id="send">{{'AUTHENTICATION.LOGIN.CONNECTION'| translate}}</button>
+         </div>
+         <div class="text-danger text-center w-100" *ngIf="showError">{{this.error}}</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</app-authentication-shell>

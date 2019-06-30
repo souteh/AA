@@ -1,0 +1,14 @@
+
+@import "../../../assets/scss/variables";
+@import "../../../assets/scss/cards";
+
+:host {
+  .container-content {
+    padding: 0px;
+  }
+  .link{
+      color:$supporting-color-blue !important;
+      font-size: 1rem !important;
+      font-weight: unset !important;
+  }
+} 

@@ -1,0 +1,62 @@
+@import "../../../../assets/scss/variables";
+:host {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100vh;
+  .full-height {
+    height: 100vh;
+  }
+  .container-fluid{
+    background-color: $white;
+  }
+}
+.title {
+  font-size: 2.8125rem;
+  color: white;
+  font-weight: 600;
+}
+
+.scaling-svg-container {
+  position: relative; 
+  height:0; 
+  width: 100%; 
+  padding: 0;
+  margin-bottom: 70%;
+}
+.scaling-svg {
+  position: absolute; 
+  height: 50%; 
+  width: 50%; 
+  left: 0; 
+  top:0;
+}
+
+.side {
+  background: #44bbe6;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  &.side-backGround1 {
+    background-image: url("../../../../assets/images/img_login-01.svg");
+  }
+  &.side-backGround2 {
+    background-image: url("../../../../assets/images/img_security_question.svg");
+  }
+}
+.svg-rotate-side {
+  transform: rotate(270deg);
+}
+.link{
+  &:hover {
+    color:$black;
+    icon-black {
+      fill: $primary-color;
+      color: $primary-color;
+    }
+  }
+}

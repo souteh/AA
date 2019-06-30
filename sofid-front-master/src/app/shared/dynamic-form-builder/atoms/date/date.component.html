@@ -1,0 +1,25 @@
+<div class="form-group" [formGroup]="form" *ngIf="type && type==='creation' ">
+  <div class="input-group">
+    <input class="form-control" [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" [formControlName]="field.id">
+    <owl-date-time #dt1 [pickerType]="'calendar'"></owl-date-time>
+    <button class="btn calendar" [owlDateTimeTrigger]="dt1" type="button">
+      <svg-icon src="../../../../../assets/svg/calendar_icon.svg" [stretch]="true" [applyCss]="true" class="icon-search"
+        [svgStyle]="{ 'width.px':20.20,'height.px':20.20 }">
+      </svg-icon>
+    </button>
+  </div>
+</div>
+<div class="form-group" [formGroup]="form" *ngIf="type && type==='search' ">
+  <div class="input-group">
+    <input class="form-control" 
+    [selectMode]="'range'" 
+    [formControlName]="field.id" 
+    [owlDateTime]="dtRange1">
+    <owl-date-time #dtRange1 [pickerType]="'calendar'"></owl-date-time>
+    <button class="btn calendar" type="button"  [owlDateTimeTrigger]="dtRange1" >
+      <svg-icon src="../../../../../assets/svg/calendar_icon.svg" [stretch]="true" [applyCss]="true" class="icon-black"
+        [svgStyle]="{ 'width.px':20.20,'height.px':20.20}">
+      </svg-icon>
+    </button>
+  </div>
+</div>

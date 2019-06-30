@@ -1,0 +1,246 @@
+<div dir="{{defaultLanguage.rtl ? 'rtl' : '' }}" [class.text-right]="defaultLanguage.rtl" class="page-container">
+    <form [formGroup]="fieldForm" (ngSubmit)="createField()" class="mb-5">
+        <div class="row">
+
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="fieldName">{{"FIELD.ADDITION.NAME" | translate}}<span class="star"> *</span></label>
+                    <app-input-traduction [group]="fieldForm" controlName="nameField" groupName="i18nText">
+                    </app-input-traduction>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="fieldType">{{"FIELD.ADDITION.TYPE" | translate}} <span class="star"> *</span></label>
+                    <ng-select id="fieldType" [items]="fieldTypes" formControlName="fieldType" [multiple]="false"
+                        [hideSelected]="true" bindLabel="value" bindValue="key" (change)="showExpression()"
+                        [class.disabled]="isDisableField">
+                    </ng-select>
+                </div>
+            </div>
+
+            <div *ngIf="showInfoText" class="col-6">
+                <div class="form-group">
+                    <label for="regex">{{"FIELD.ADDITION.REGEX" | translate}}<span class="star"> *</span></label>
+                    <input type="text" class="form-control" id="regex" formControlName="validationRegex">
+                </div>
+            </div>
+
+            <div *ngIf="showInfoText" class="col-6">
+                <div class="form-group">
+                    <label for="errMsg">{{"FIELD.ADDITION.ERRORMSG" | translate}} <span class="star"> *</span></label>
+                    <app-input-traduction [group]="fieldForm" controlName="errorMsgField"
+                        groupName="regexErrorI18nText">
+                    </app-input-traduction>
+                </div>
+            </div>
+            <div *ngIf="showInfoSelect" class="col-6">
+                <div [class.disabled]="isDisableField">
+                    <div class="checkbox checkbox-primary">
+                        <input id="multiple" class="custom-control-input" type="checkbox" formControlName="isMultiple">
+                        <label class="custom-control-label"
+                            for="multiple">{{"FIELD.ADDITION.MULTIPLE" | translate}}</label>
+                    </div>
+                    <div class="checkbox checkbox-primary">
+                        <input id="autoComplete" class="custom-control-input" type="checkbox"
+                            formControlName="isAutoComplete">
+                        <label class="custom-control-label"
+                            for="autoComplete">{{"FIELD.ADDITION.AUTO_COMPLETE" | translate}}</label>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="showInfoSelect" class="col-6">
+                <div class="form-group">
+                    <label for="source">{{"FIELD.ADDITION.SOURCE" | translate}}<span class="star"> *</span></label>
+                    <ng-select id="source" [items]="sourceSelectItems" formControlName="referenceTypeId"
+                        [multiple]="false" [hideSelected]="true" bindLabel="value" bindValue="key"
+                        [class.disabled]="isDisableField">
+                    </ng-select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label>{{"FIELD.ADDITION.POSITION" | translate}}</label>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-3">
+                <div class="form-group" formGroupName="position">
+                    <label for="column" class="color-label">{{"FIELD.ADDITION.COLUMN" | translate}} <span class="star">
+                            *</span></label>
+                    <ng-select id="column" [items]="columns" formControlName="column" [multiple]="false"
+                        [hideSelected]="true" bindLabel="value" bindValue="key">
+                    </ng-select>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="form-group" formGroupName="position">
+                    <label for="ligne" class="color-label">{{"FIELD.ADDITION.ROW" | translate}} <span class="star">
+                            *</span></label>
+                    <ng-select id="ligne" [items]="rows" formControlName="line" [multiple]="false" [hideSelected]="true"
+                        bindLabel="value" bindValue="key">
+                    </ng-select>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-6">
+                <div class="checkbox checkbox-primary" [class.disabled]="isMain">
+                    <input id="mandatory" class="custom-control-input" type="checkbox" formControlName="isMandatory"
+                        (change)="checkMandatory($event)">
+                    <label class="custom-control-label"
+                        for="mandatory">{{"FIELD.ADDITION.MANDATORY" | translate}}</label>
+
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="checkbox checkbox-primary" [class.disabled]="isMain">
+                    <input id="visibility" class="custom-control-input" type="checkbox" formControlName="isVisible"
+                        (change)="checkVisibility()">
+                    <label class="custom-control-label"
+                        for="visibility">{{"FIELD.ADDITION.VISIBLE" | translate}}</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3 mb-3">
+            <div class="col-6" [class.disabled]="disableMandatory">
+                <label class="color-label">{{"FIELD.ADDITION.MANDACONDITION" | translate}}</label>
+            </div>
+            <div class="col-6" [class.disabled]="disableVisibility">
+                <label class="color-label">{{"FIELD.ADDITION.VISIBCONDITION" | translate}}</label>
+            </div>
+        </div>
+
+        <div class="row" [class.disabled]="isMain">
+            <div class="col-2">
+                <div class="form-group" formGroupName="mandatoryCondition">
+                    <label for="mandatoryChamp" class="ml-3"
+                        [class.disabled]="disableMandatory">{{"FIELD.ADDITION.FIELD_VISIB" | translate}}</label>
+                    <ng-select id="mandatoryChamp" [items]="selectItems" formControlName="fieldId" [multiple]="false"
+                        [hideSelected]="true" bindLabel="value" bindValue="key">
+                    </ng-select>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="form-group" formGroupName="mandatoryCondition">
+                    <label for="mandatoryOp" class="ml-3"
+                        [class.disabled]="disableMandatory">{{"FIELD.ADDITION.FIELD_OPT" | translate}}</label>
+                    <ng-select id="mandatoryOperation" [items]="operations" formControlName="operation" [addTag]="true"
+                        [multiple]="false" [hideSelected]="true">
+                    </ng-select>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="form-group" formGroupName="mandatoryCondition">
+                    <label for="mandatoryCriteria" class="ml-3"
+                        [class.disabled]="disableMandatory">{{"FIELD.ADDITION.FIELD_CRITERIA" | translate}}</label>
+                    <input type="text" class="form-control" id="mandatoryCriteria" formControlName="value">
+                </div>
+            </div>
+
+            <div class="col-2">
+                <div class="form-group" formGroupName="visibilityCondition">
+                    <label for="visibilityChamp" class="ml-3"
+                        [class.disabled]="disableVisibility">{{"FIELD.ADDITION.FIELD_VISIB" | translate}}</label>
+                    <ng-select id="visibilityChamp" [items]="selectItems" formControlName="fieldId" [multiple]="false"
+                        [hideSelected]="true" bindLabel="value" bindValue="key">
+                    </ng-select>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="form-group" formGroupName="visibilityCondition">
+                    <label for="visibilityOp" class="ml-3"
+                        [class.disabled]="disableVisibility">{{"FIELD.ADDITION.FIELD_OPT" | translate}}</label>
+                    <ng-select id="visibilityOperation" [items]="operations" formControlName="operation" [addTag]="true"
+                        [multiple]="false" [hideSelected]="true">
+                    </ng-select>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="form-group" formGroupName="visibilityCondition">
+                    <label for="visibilityCriteria" class="ml-3"
+                        [class.disabled]="disableVisibility">{{"FIELD.ADDITION.FIELD_CRITERIA" | translate}}</label>
+                    <input type="text" class="form-control" id="visibilityCriteria" formControlName="value">
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-3">
+                <div class="checkbox checkbox-primary">
+                    <input type="checkbox" class="custom-control-input" id="default" (change)="checkOrder()"
+                        formControlName="displayInList">
+                    <label class="custom-control-label" for="default">{{"FIELD.ADDITION.DEFAULT" | translate}}</label>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="checkbox checkbox-primary">
+                    <input type="checkbox" class="custom-control-input" id="editable" formControlName="isEditable">
+                    <label class="custom-control-label" for="editable">{{"FIELD.ADDITION.EDITABLE" | translate}}</label>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="checkbox checkbox-primary">
+                    <input type="checkbox" class="custom-control-input" id="exportable" (change)="checkExportable()"
+                        formControlName="isExportable">
+                    <label class="custom-control-label"
+                        for="exportable">{{"FIELD.ADDITION.EXPORTABLE" | translate}}</label>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="checkbox checkbox-primary">
+                    <input id="filterSearch" class="custom-control-input" type="checkbox"
+                        formControlName="isFilterEnabled">
+                    <label class="custom-control-label"
+                        for="filterSearch">{{"FIELD.ADDITION.FILTER" | translate}}</label>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-3">
+                <div *ngIf="isOrdreVisible" class="form-group">
+                    <label for="ordre" class="color-label">{{"FIELD.ADDITION.DISPLAYORDER" | translate}} <span
+                            class="star">
+                            *</span></label>
+                    <ng-select id="ordre" [items]="rows" formControlName="displayPosition" [multiple]="false"
+                        [hideSelected]="true" bindLabel="value" bindValue="key">
+                    </ng-select>
+                </div>
+            </div>
+            <div class="col-3">
+            </div>
+            <div class="col-3">
+                <div *ngIf="isOrdreExportVisible" class="form-group">
+                    <label for="ordreExport" class="color-label">{{"FIELD.ADDITION.ORDEREXPORT" | translate}} <span
+                            class="star"> *</span></label>
+                    <ng-select id="ordreExport" [items]="rows" formControlName="exportPosition" [multiple]="false"
+                        [hideSelected]="true" bindLabel="value" bindValue="key">
+                    </ng-select>
+                </div>
+            </div>
+            <div class="col-3">
+            </div>
+        </div>
+
+        <div class="row justify-content-md-start mt-5">
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-12">
+                        <button id="btnSave" type="submit" class="btn btn-primary w-25 mr-2"
+                            [disabled]="!fieldForm.valid">{{"FIELD.ADDITION.VALIDATE" | translate}}</button>
+                        <button id="btnCancel" type="button" class="btn btn-secondary w-25 "
+                            [routerLink]="['/fields']">{{"FIELD.ADDITION.CANCEL" | translate}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

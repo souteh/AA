@@ -1,0 +1,42 @@
+<div dir="{{defaultLanguage.rtl ? 'rtl' : '' }}" [class.text-right]="defaultLanguage.rtl" style="position:relative"
+    class="page-container">
+    <div class="row">
+
+        <div class="col-6">
+            <div class="form-group">
+                <label for="selectedDefaultLanguage">{{"LANGUAGE-SETTING.DEFAULT-LANGUAGE" | translate}}</label>
+                <ng-select [items]="languages" bindLabel="value" bindValue="key" placeholder="Select default language"
+                    [(ngModel)]="selectedDefaultLanguage" id="selectedDefaultLanguage" class="custom-lang"
+                    (change)="changeDefaultSelection(languages)">
+                </ng-select>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="form-group">
+                <label for="otherLanguage">{{"LANGUAGE-SETTING.OTHER-LANGUAGE" | translate}}</label>
+                <ng-select [items]="otherLanguagesList" [multiple]="true" bindLabel="value" [selectableGroup]="true"
+                    [closeOnSelect]="false" bindValue="key" id="otherLanguage" [(ngModel)]="otherLanguage"
+                    placeholder="Select languages" class="custom-lang" (change)="changeOtherSelection(languages)">
+                    <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
+                        <div class="checkbox checkbox-primary">
+                            <input class="form-check-input" id="item-{{index}}" type="checkbox"
+                                [ngModel]="item$.selected" />
+                            <label class="form-check-label"> {{item.value}}</label>
+                        </div>
+                    </ng-template>
+                </ng-select>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-5  fixed-bottom">
+        <div class="col-6">
+            <button id="btnSave" type="button"
+                class="btn btn-primary w-25 mr-2">{{"LANGUAGE-SETTING.VALIDATE" | translate}}</button>
+            <button id="btnCancel" type="button"
+                class="btn btn-secondary w-25 ">{{"LANGUAGE-SETTING.CANCEL" | translate}}</button>
+
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,18 @@
+@import "../../../../../assets/scss/variables";
+
+
+:host{
+    .star{
+        color:$functional-color-danger;
+    }
+    .color-label{
+        color:$primary-color;
+    }
+
+    .disabled {
+
+        pointer-events: none;
+        opacity: 0.4;
+        
+      }
+}

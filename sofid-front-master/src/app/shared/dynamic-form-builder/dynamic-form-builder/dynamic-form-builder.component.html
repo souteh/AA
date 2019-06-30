@@ -1,0 +1,15 @@
+<form (ngSubmit)="onsubmit.emit(this.form.value)" [formGroup]="form" class="form-row" autocomplete="off">
+    <div *ngFor="let field of fields" [class]="cssClass">
+        <app-field-builder [field]="field" [form]="form" [type]="type"> </app-field-builder>
+    </div>
+    <div class="col-12 mt-5 mb-5" *ngIf="type && type==='creation' ">
+        <button type="button" class="btn btn-primary btn-lg mr-3" *ngIf="readOnly" (click)="update()">{{'BUTTON.UPDATE'| translate}}</button>
+        <button type="submit" [disabled]="!form.valid" class="btn btn-primary btn-lg mr-3" *ngIf="!readOnly">{{'BUTTON.VALIDATE'|
+            translate}}</button>
+        <button type="button" class="btn btn-secondary btn-lg " (click)="cancel()">{{'BUTTON.CANCEL'| translate}}</button>
+    </div>
+    <div class="col-12 mt-5 mb-5 d-flex justify-content-between" *ngIf="type && type==='search' ">
+        <button type="submit" class="btn btn-blue btn-lg mr-3">{{'BUTTON.SEARCH'| translate}}</button>
+        <button type="button" class="btn btn-secondary btn-lg " (click)="form.reset()">{{'BUTTON.REINIT'| translate}}</button>
+    </div>
+</form>

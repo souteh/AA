@@ -1,0 +1,121 @@
+@import "../../../assets/scss/variables";
+:host {
+  .top-bar {
+    height:50px;
+    background-color: $white;
+    -webkit-box-shadow: 0px 2px 6px 6px rgba(0, 0, 0, 0.04);
+    -moz-box-shadow: 0px 2px 6px 6px rgba(0, 0, 0, 0.04);
+    box-shadow: 0px 2px 6px 6px rgba(0, 0, 0, 0.04);
+    z-index: 5;
+  }
+  ::ng-deep {
+    breadcrumb {
+      .fluid-bread {
+        margin: 0px !important;
+        padding: 0px !important;
+        background-color: transparent !important;
+        .container {
+          margin: 0px !important;
+          padding: 0px !important;
+          width: 100%;
+        }
+      }
+    }
+
+    .custom-crumbs {
+      background-color: transparent !important;
+      color: $black !important;
+      font-weight: bold !important;
+      font-size: 0.9rem;
+      width: 100%;
+      li:before {
+        content: url(../../../assets/svg/sep_icon.svg);
+        font-size: 0.9rem;
+        color: $black !important;
+        fill: $functional-color-grey-3 !important;
+        font-weight: bold !important;
+        width: 24px;
+        height: 17px;
+      }
+      li:first-child:before {
+        content: " ";
+      }
+      .breadcrumb-item {
+        color: $black !important;
+        a {
+          color: $black !important;
+        }
+      }
+    }
+  }
+  .profil-header {
+    border-bottom: $functional-color-grey-8 1px solid;
+    height: 60px;
+    display: block;
+  }
+  .col {
+    padding: 0px !important;
+  }
+  .component {
+    background-color: $functional-color-grey-8 !important;
+    padding-left: 40px;
+    padding-right: 40px;
+    min-height: 90%;
+    overflow: hidden;
+  }
+
+  .container-content {
+    margin-top: 20px;
+    min-height: calc(100vh - 240px);
+  }
+ 
+}
+.info-wrapper {
+  background-color: $white;
+  width: 210px;
+  margin-top: 6px;
+  -webkit-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.15);
+  z-index: 9999;
+}
+
+.info-wrapper::before 
+{
+content: "";
+position: absolute;
+top:-4px;
+left:141px;
+border-style: solid;
+border-width: 0 10px 10px 10px;
+border-color: transparent transparent white transparent;
+-webkit-filter: drop-shadow(0 -1px 1px rgba(0, 0, 0, 0.15));
+filter: drop-shadow(0 -1px 1px rgba(0, 0, 0, 0.15));
+}
+.sidebar-expanded {
+  padding-left: 260px;
+  transition: padding-left 0.2s;
+}
+.sidebar-collapsed {
+  padding-left: 60px;
+  transition: padding-left 0.2s;
+}
+
+.profil-btn{
+  background-color: transparent !important;
+  margin-right: 14px;
+  color:$obs-color-grey !important;
+}
+li{
+  &.profilItem{
+    &:hover{
+      background-color: $black !important;
+      color: $white !important;
+      .icon-primary{
+       fill:$white !important;
+      }
+
+    }
+  }
+}
+

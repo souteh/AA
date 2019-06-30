@@ -1,0 +1,15 @@
+@import "./variables";
+
+  .card{
+    margin: -40px;
+    border: 0px solid transparent !important;
+  }
+.card-header{
+  color: $primary-color !important; 
+    font-size: 1rem !important;
+    border: none !important;
+    border-bottom: 1px solid $functional-color-grey-4 !important;
+
+    }
+ 
+  

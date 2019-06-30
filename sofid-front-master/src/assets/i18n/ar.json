@@ -1,0 +1,314 @@
+{
+    "NAVBAR": {
+        "LANGUAGE": "تغييراللغة ",
+        "DASHBOARD": "ترحيب",
+        "USER": "المستخدم",
+        "USER_MANAGEMENT": " المستخدم إدارة ",
+        "ROLE_MANAGEMENT": " الدور إدارة ",
+        "FIELD_MANAGEMENT": " النموذج إعداد ",
+        "REPORTING": "Reporting",
+        "SETTING": "Paramètres généraux",
+        "MASS_IMPORT": " المستخدمين استيراد ",
+        "MASS_UPDATE": "Modifier en masse",
+        "MASS_DELETE": "Supprimer en masse"
+    },
+    "SELFCARE": {
+        "PROFIL": "Profil",
+        "SETTING": "Paramètres",
+        "LOGOUT": "Déconnexion"
+    },
+    
+    "BUTTON": {
+        "VALIDATE": "التحقق",
+        "SEARCH": "بحث",
+        "REINIT": "إعادة تعيين",
+        "UPDATE": "تحرير",
+        "CONFIRM": "أكد",
+        "CANCEL": "إلغاء",
+        "MASS_IMPORT": "Créer en masse",
+        "MASS_UPDATE": "Modifier en masse",
+        "MASS_DELETE": "Supprimer en masse",
+        "VERIFY": "Verifier",
+        "SAVE": "Enregistrer"
+    },
+    "FORM": {
+        "REQUIRED": "إجباري"
+    },
+    "DASHBOARD": {
+        "HOME": "ترحيب"
+    },
+    "TOASTER": {
+        "SUCCESS": {
+            "TITLE": " نجاح ",
+            "BODY": " بنجاح التسجيل تم "
+        },
+        "ERROR": {
+            "TITLE": " فشل ",
+            "BODY": ""
+        },
+        "DELETE": {
+            "SUCCESS": {
+                "TITLE": " نجاح ",
+                "BODY": "تم الحذف بنجاح "
+            },
+            "ERROR": {
+                "TITLE": " الحذف في فشل ",
+                "BODY": ""
+            },
+            "UPDATE": {
+                "SUCCESS": {
+                    "TITLE": "Succès",
+                    "BODY": "Modifié avec succès"
+                },
+                "ERROR": {
+                    "TITLE": "Echec de la modification",
+                    "BODY": ""
+                }
+            }
+        }
+    },
+    "ROLE": {
+        "LISTING": {
+            "BREADCRUMB": "إدارة الدور",
+            "CODE": "الكود دور",
+            "NAME": "دور",
+            "PAGE_TITLE": "الأدوار قائمة ",
+            "DESCRIPTION": " وصف ",
+            "ADD_ROLE": "دور إضافة ",
+            "DELETE_ROLE": " الحقل؟ هذا حذف تريد أنك متأكد أنت هل  ",
+            "MODAL_CONFIRMATION_TITLE": " الحذف تأكيد ",
+            "ACTION": {
+                "DISPLAY": "عرض ",
+                "EDIT": "تغيير ",
+                "DELETE": "نزع "
+            }
+        },
+        "ADDITION": {
+            "BREADCRUMB": "دور جديد",
+            "NAME": "الدور اسم ",
+            "PAGE_TITLE": "أدوار إضافة ",
+            "DESCRIPTION": "الدور وصف ",
+            "CODE": " الكود دور",
+            "TYPE": "نوع",
+            "SELECT_ALL": " Selection Tout"
+        },
+        "EDITION": {
+            "BREADCRUMB": "تحرير الدور",
+            "TITLE": "تحرير الدور"
+        },
+        "SHOW": {
+            "BREADCRUMB": " الدور عرض ",
+            "PAGE_TITLE": " الدور عرض "
+        }
+    },
+    "FIELD": {
+        "ADDITION": {
+            "BREADCRUMB": " حقل إنشاء ",
+            "TITLE": " حقل إنشاء ",
+            "NAME": " حقل اسم ",
+            "REGEX": " شكل ",
+            "TYPE": " نوع ",
+            "ERRORMSG": " رسالة خطأ ",
+            "POSITION": " موقف ",
+            "ROW": " خط ",
+            "COLUMN": " عمود ",
+            "VISIBLE": " مرئي ",
+            "MANDATORY": " إلزامي ",
+            "VISIBCONDITION": " الرؤية شرط ",
+            "MANDACONDITION": " الالتزام شرط ",
+            "FIELD_VISIB": " حقل ",
+            "FIELD_OPT": " عامل ",
+            "FIELD_CRITERIA": " معيار ",
+            "DEFAULT": " البحث نتيجة في عرض ",
+            "EDITABLE": " تحرير يمكن ",
+            "EXPORTABLE": " تصدير يمكن ",
+            "FILTER": " البحث تصفية كعامل إضافة ",
+            "DISPLAYORDER": " الطلب عرض ",
+            "ORDEREXPORT": " التصدير ترتيب ",
+            "VALIDATE": " سجل ",
+            "CANCEL": " إلغاء ",
+            "TITLE_MSG_SUCCES": " المستخدم نموذج تكوين ",
+            "BODY_MSG_SUCCES": " بنجاح  خلقت ",
+            "TITLE_MSG_ERROR": " الإضافة في فشل ",
+            "SOURCE": " مصدر ",
+            "AUTO_COMPLETE": " تلقائي إكمال ",
+            "MULTIPLE": " مضاعف "
+        },
+        "EDITION": {
+            "BREADCRUMB": " حقل تغيير ",
+            "TITLE": " حقل تحرير ",
+            "TITLE_MSG_SUCCES": "تكوين نموذج المستخدم ",
+            "BODY_MSG_SUCCES": " بنجاح التعديل تم ",
+            "TITLE_MSG_ERROR": " التعديل فشل "
+        },
+        "DISPLAY": {
+            "BREADCRUMB": " حقل عرض ",
+            "TITLE": " حقل استشارة ",
+            "EDIT": " تحرير ",
+            "CANCEL": " إلغاء "
+        },
+        "LISTING": {
+            "BREADCRUMB": " المستخدم نموذج تكوين ",
+            "TITLE": "Liste des champs",
+            "NAME": " اسم ",
+            "TYPE": " نوع ",
+            "POSITION": " موقف ",
+            "VISIBLE": " مرئي ",
+            "MANDATORY": " إلزامي ",
+            "EXPORTABLE": " تصدير يمكن ",
+            "STATUS": " وضع ",
+            "ADD_FIELD": " حقل إنشاء ",
+            "DELETE_FIELD": " الحقل؟ هذا حذف تريد أنك متأكد أنت هل ",
+            "ACTION": {
+                "DISPLAY": " عرض ",
+                "EDIT": " تحرير ",
+                "DELETE": " إلغاء "
+            }
+        },
+        "FIELD_TYPE": {
+            "DATE": " تاريخ ",
+            "NUMBER": " رقمي ",
+            "PASSWORD": " السر كلمة ",
+            "PIN_CODE": " الرقم السري",
+            "SELECT": " قائمة ",
+            "TEXT": " نص ",
+            "CHECKBOX": " مربع "
+        }
+    },
+    "USER": {
+        "LISTING": {
+            "BREADCRUMB": " المستخدم إدارة ",
+            "TITLE": "Liste des utilisateurs",
+            "ADD_USER": " مستخدم إضافة ",
+            "EXPORT_USER": "Export users",
+            "DELETE_USER": "Etes-vous sûr de vouloir supprimer cet utilisateur ?",
+            "SEARCH": {
+                "TITLE": " متقدم بحث "
+            }
+        },
+        "ADDITION": {
+            "BREADCRUMB": "Ajouter un utilisateur",
+            "PAGE_TITLE": "Ajouter un utilisateur"
+        },
+        "EDITION": {
+            "BREADCRUMB": "Modifier un utilisateur",
+            "TITLE": "Modifier un utilisateur",
+            "LOCK": "Verrouiller",
+            "UNLOCK": "Déverrouiller",
+            "ACTIVATE": "Activer"
+        },
+        "DISPLAY": {
+            "BREADCRUMB": "Consulter un utilisateur",
+            "PAGE_TITLE": "Consulter un utilisateur"
+        }
+    },
+    "IMPORT": {
+        "TITLE": "Création des utilisateurs",
+        "TITLE_UPDATE": "Modification des utilisateurs",
+        "TITLE_DELETE": "Supprimer des utilisateurs",
+        "NAME_FILE": "Fichier template",
+        "UPLOAD_FILE": "Importer fichier",
+        "BTN_VALIDATE": "Valider",
+        "TITLE_POPUP": "Comment ca marche",
+        "FIELD_NAME": "Nom du champ",
+        "VALUE": "Valeur attendue",
+        "DOWNLOAD": "Telecharger"
+    },
+    "EXPORT_USER":{
+        "TITLE" : "Exports des utilisateurs",
+        "START_DATE" : "Générer entre le",
+        "END_DATE" : "Et le",
+        "GENERATED_BY" : "Générer par",
+        "BTN_SEARCH" : "Chercher",
+        "BTN_INIT" : "Réinitialiser",
+        "GENERATED_DATE":"Date de génération",
+        "END_GEN_DATE":"Date fin",
+        "EXECUTED_BY":"Exécuté par",
+        "NEMBER":"NOMBRE",
+        "TIME":"Temps de traitement",
+        "EXPORT_STATUS":"Statut d'export",
+        "DOWNLOAD" :"Téléchargement",
+        "CSV":"CSV",
+        "EXCEL":"EXCEL",
+        "PDF":"PDF"
+
+    },
+    "PROFIL": {
+        "PAGE_TITLE": "Mon profil",
+        "BREADCRUMB": "Profil",
+        "SECURITY": {
+            "TITLE": "Sécurité",
+            "PASSWORD": "Mot de passe",
+            "PASSWORD_LINK": "Changer mot de passe",
+            "MODAL_PASSWORD_TITLE": "Changer mot de passe",
+            "SECRET_QUESTION": "Question de sécurité",
+            "SECRET_QUESTION_LINK": "Modifier ma question",
+            "MODAL_QUESTION_TITLE": "Modifier ma question",
+            "OLD_PASSWORD": "Ancien mot de passe",
+            "NEW_PASSWORD": "Nouveau mot de passe",
+            "CONFIRM_PASSWORD": "Confirmation nouveau mot de passe",
+            "MODAL_TITLE": "Modifier ma question",
+            "QUESTION": "Question",
+            "RESPONSE": "Réponse",
+            "CANCEL": "Annuler",
+            "EDIT": "Editer",
+            "SAVE": "Enregistrer",
+            "VERIFICATION_TITLE": "Pour continuer, vérifier d'abord que c'est vous",
+            "NEXT": "Suivant",
+            "VERIFY": "Vérifier",
+            "VALIDATE": "Valider",
+            "PASSWORD_REQUIRED": "Ce champs est obligatoire",
+            "PASSWORD_PATTERN": "Doit contenir 8 caractères : 1 chiffre, 1 lettre majuscule, 1 caractère spécial",
+            "PASSWORD_CONFIRM": "Le mot de passe ne correspond pas",
+            "INVALID-PASSWORD": "Mot de passe invalide"
+        }
+    },
+    "TRANSLATION": "Traduction",
+    "NO_RESULT": "Aucun résultat",
+    "DATATABLE_YES": "Oui",
+    "DATATABLE_NO": "Non",
+    "DATATABLE_ALL": "Tout",
+    "DATATABLE_ACTIF": "Actif",
+    "DATATABLE_NOTACTIF": "Inactif",
+    "AUTHENTICATION": {
+        "IGNORE": "Ignorer cette étape",
+        "LOGIN": {
+            "TITLE": "Bienvenue !",
+            "LOGIN": "Identifiant",
+            "PASSWORD": "Mot de passe",
+            "LANGUAGE": "Langue",
+            "SAVE_LOGIN": "Mémoriser mon identifiant",
+            "REINIT_PASSWORD": "Réinitialiser mon mot de passe",
+            "CONNECTION": "Connexion"
+        },
+        "SECRET_QUESTION": {
+            "TITLE": "Question de sécurité",
+            "QUESTION": "Question ?",
+            "ANSWER": "Réponse"
+        },
+        "PASSWORD_PAGE": {
+            "TITLE": "Changer mot de passe",
+            "CURRENT_PASSWORD": "Ancien mot de passe",
+            "NEW_PASSWORD": "Nouveau mot de passe",
+            "CONFIRM_PASSWORD": "Confirmation nouveau mot de passe",
+            "MSG_REQUIRE": "Ce champs est obligatoire",
+            "MSG_PATTERN": "Doit contenir 8 caractères : 1 chiffre, 1 lettre majuscule, 1 caractère spécial",
+            "MSG_CONFIRM": "Le mot de passe ne correspond pas"
+        },
+        "REINIT_PASSWORD_PAGE": {
+            "TITLE": "Réinitiliaser mot de passe",
+            "OLD_PASSWORD": "Ancien mot de passe",
+            "NEW_PASSWORD": "Nouveau mot de passe",
+            "CONFIRM_PASSWORD": "Confirmation nouveau mot de passe",
+            "MSG_REQUIRE": "Ce champs est obligatoire",
+            "MSG_PATTERN": "Doit contenir 8 caractères : 1 chiffre, 1 lettre majuscule, 1 caractère spécial",
+            "MSG_CONFIRM": "Le mot de passe ne correspond pas"
+        }
+    },
+    "LANGUAGE-SETTING": {
+        "PAGE_TITLE": "Langues",
+        "BREADCRUMB": "Paramètres généraux",
+        "DEFAULT-LANGUAGE": "Langue par défaut",
+        "OTHER-LANGUAGE": "Autres"
+    }
+}

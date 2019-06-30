@@ -1,0 +1,27 @@
+<div class="form-group" [formGroup]="form">
+  <label class="form-control-label mb-1" [attr.for]="field.label">
+    {{field.label}}
+    <strong class="text-danger" *ngIf="field.isMandatory">*</strong>
+  </label>
+  <div [ngSwitch]="field.fieldType">
+    <app-text-box *ngSwitchCase="'TEXT'" [field]="field" [form]="form"></app-text-box>
+    <app-number *ngSwitchCase="'NUMBER'" [field]="field" [form]="form"></app-number>
+    <app-text-box *ngSwitchCase="'PIN_CODE'" [field]="field" [form]="form"></app-text-box>
+    <app-single-checkbox *ngSwitchCase="'CHECKBOX'" [field]="field" [form]="form"></app-single-checkbox>
+    <app-custom-select *ngSwitchCase="'SELECT'" [field]="field" [form]="form"></app-custom-select>
+    <app-password *ngSwitchCase="'PASSWORD'" [field]="field" [form]="form"></app-password>
+    <app-date *ngSwitchCase="'DATE'" [field]="field" [form]="form" [type]="type"></app-date>
+    <div  *ngIf="form.controls[field.id].invalid && (form.controls[field.id].dirty || form.controls[field.id].touched)"  class="d-flex"
+                >
+                <svg-icon src="../../../../../assets/svg/alert.svg" [stretch]="true" [applyCss]="true"
+                [svgStyle]="{ 'width.px':16.18 }">
+              </svg-icon>
+        <div *ngIf="form.controls[field.id].errors.required" class=" error-msg ml-1 mt-1">
+            {{field.label}} {{'FORM.REQUIRED'| translate}}
+          </div>
+        <div *ngIf="form.controls[field.id].errors?.pattern" class="error-msg ml-1 mt-1">
+            {{field.regexErrorLabel}} 
+          </div>
+    </div>
+  </div>
+</div>

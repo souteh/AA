@@ -1,0 +1,23 @@
+@import "../../../../assets/scss/variables";
+:host{
+    .btn-secondary{
+        &:hover{
+            background-color: transparent;
+            color:$black
+        }
+    }
+}
+.header-color{
+    background-color: $primary-color-dark;
+    color : $white
+}
+.color-label{
+    color:$black;
+}
+::ng-deep.modal-dialog{
+    max-width: 1500px;
+}
+
+.pre-line{
+    white-space: pre-line
+}

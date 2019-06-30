@@ -1,0 +1,44 @@
+@import "../../../../assets/scss/variables";
+.input-group-text,
+.form-control {
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  background-color: $white;
+  border-bottom-width: 1px;
+}
+.form-check-label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+input::placeholder {
+  color: $black;
+}
+.loader {
+  position: absolute;
+  height: 40px;
+  width: 97%;
+  text-align: center;
+  background-color: $primary-color-dark;
+}
+.init-password {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+select {
+  height: 40px !important;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background: url(../../../../assets/svg/arrow_icon.svg) 97% / 15% no-repeat $white;
+  background-size: 10px 10px;
+}
+select::-ms-expand {
+  display: none;
+}
+.btn-primary {
+  &:focus {
+    background-color: $primary-color-dark;
+    border-color: $primary-color-dark;
+  }
+}

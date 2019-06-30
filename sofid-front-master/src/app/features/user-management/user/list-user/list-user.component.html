@@ -1,0 +1,109 @@
+<div class="page-container">
+  <div class="header-action">
+      <a class="btn link" [routerLink]="['/user/0']"  placement="bottom" ngbTooltip="{{'USER.LISTING.ADD_USER'| translate}}"   >
+        <svg-icon src="../../../../../assets/svg/add_icon.svg" [applyCss]="true" class="icon-black" [svgStyle]="{ 'width.px':13 ,'height.px':13.18}">
+        </svg-icon>
+      </a>
+      <a [satPopoverAnchorFor]="listExport" (click)="listExport.toggle()" class="btn link" placement="bottom" ngbTooltip="{{'USER.LISTING.EXPORT_USER'| translate}}" >
+        <svg-icon src="../../../../../assets/svg/download_icon.svg" [applyCss]="true" class="icon-black" [svgStyle]="{ 'width.px':18 ,'height.px':18.18}">
+        </svg-icon>
+      </a>
+      <a [satPopoverAnchorFor]="p" (click)="p.toggle()" class="btn">
+        <svg-icon src="../../../../../assets/svg/action_icon.svg" [applyCss]="true" class="icon-black" [svgStyle]="{ 'width.px':18 ,'height.px':18.18}">
+        </svg-icon>
+      </a>
+    
+      <sat-popover #p horizontalAlign="end" verticalAlign="below">
+        <div class="info-wrapper mt-3">
+          <ul class="px-0">
+            <li class="w-100 btn btn-secondary border-0 text-left" >
+              <a routerLink="/massImports/CREATE" class="outline-none"> {{'NAVBAR.MASS_IMPORT'| translate}}</a>
+            </li>
+            <li class="w-100 btn btn-secondary border-0 text-left">
+              <a routerLink="/massImports/UPDATE"  class="outline-none"> {{'NAVBAR.MASS_UPDATE'| translate}}</a>
+            </li>
+            <li class="w-100 btn btn-secondary border-0 text-left">
+              <a routerLink="/massImports/DELETE"  class="outline-none">{{'NAVBAR.MASS_DELETE'| translate}}</a>
+            </li>
+          </ul>
+        </div>
+      </sat-popover>
+
+        <sat-popover #listExport horizontalAlign="end" verticalAlign="below">
+            <div class="info-wrapper mt-3">
+              <ul class="px-0">
+                <li class="w-100 btn btn-secondary border-0 text-left" >
+                  <a routerLink="/exportUser/CSV" class="outline-none">
+                    <svg-icon src="../../../../../assets/svg/export_csv.svg" [applyCss]="true" class="icon-black" [svgStyle]="{ 'width.px':18 ,'height.px':18.18}">
+                    </svg-icon>
+                    {{'EXPORT_USER.CSV'| translate}}</a>
+                </li>
+                <li class="w-100 btn btn-secondary border-0 text-left">
+                  <a routerLink="/exportUser/EXCEL"  class="outline-none">
+                    <svg-icon src="../../../../../assets/svg/export_excel.svg" [applyCss]="true" class="icon-black" [svgStyle]="{ 'width.px':18 ,'height.px':18.18}">
+                    </svg-icon>
+                    {{'EXPORT_USER.EXCEL'| translate}}</a>
+                </li>
+                <li class="w-100 btn btn-secondary border-0 text-left">
+                  <a routerLink="/exportUser/PDF"  class="outline-none">
+                    <svg-icon src="../../../../../assets/svg/export_pdf.svg" [applyCss]="true" class="icon-black" [svgStyle]="{ 'width.px':18 ,'height.px':18.18}">
+                    </svg-icon>
+                    {{'EXPORT_USER.PDF'| translate}}</a>
+                </li>
+              </ul>
+            </div>
+          </sat-popover>
+  </div>
+  
+<app-datatable [config]="config" [columns]="columns" [selectePage]="currentPage" [actions]=actions (SelectedAction)="getAction($event)"
+  [data]="rows" (advancedResearch)="openWindowCustomClass(content)">
+</app-datatable>
+</div>
+<ng-template #content let-modal>
+  <div class="modal-header text-center d-flex justify-content-between pl-3 ">
+    <svg-icon src="../../../../../assets/svg/search_avanced_icon.svg" [applyCss]="true" class="icon-white mt-2"
+      [svgStyle]="{ 'width.px':18.18 ,'height.px':18.18 }">
+    </svg-icon>
+    <h4 class="modal-title ml-2 text-center w-100">{{'USER.LISTING.SEARCH.TITLE'| translate}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <app-dynamic-form-builder [fields]=fields cssClass="col-6" type="search" (onsubmit)='search($event)'>
+    </app-dynamic-form-builder>
+  </div>
+</ng-template>
+<div bsModal #childModal="bs-modal" class="modal fade " tabindex="-1" role="dialog" aria-labelledby="dialog-child-name">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="dialog-child-name" class="modal-title text-center w-100 pl-2">
+          {{'ROLE.LISTING.MODAL_CONFIRMATION_TITLE'| translate}}</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="hideChildModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-12 mb-3 text-center">
+            <svg-icon src="../../../../../assets/svg/alert_icon.svg" [applyCss]="true" class="icon-yellow" [svgStyle]="{ 'width.px':25 }">
+            </svg-icon>
+          </div>
+          <div class="col-12 text-center">
+            {{'USER.LISTING.DELETE_USER'| translate}}
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-6">
+            <button type="submit" class="btn btn-primary w-100" (click)="deleteUser()">{{'BUTTON.CONFIRM'| translate}}</button>
+          </div>
+          <div class="col-6 text-right">
+            <button type="button" class="btn btn-secondary w-100" (click)="hideChildModal()">{{'BUTTON.CANCEL'|
+              translate}}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

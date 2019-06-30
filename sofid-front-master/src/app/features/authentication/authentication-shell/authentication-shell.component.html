@@ -1,0 +1,25 @@
+<div class="container-fluid px-0 mx-0">
+  <div class="row">
+    <div class="col-lg-6 full-height px-0 d-flex flex-column align-items-center justify-content-center ">
+      <div class="fixed-top w-xl-50 w-lg-50  text-center mt-5" >
+        <svg-icon src="../../../../../assets/images/logo_nomad_black.svg" [applyCss]="true" class="icon-black"
+        [svgStyle]="{ 'width.px':180, 'height.px':60 }">
+        </svg-icon>
+      </div>
+      <ng-content></ng-content>
+      <div class="fixed-bottom w-50 text-right mb-2 " *ngIf="!isLoginPage">
+       <a routerLink="/home" class="mr-2 font-weight-bolder link">
+         <span class="mr-2 bold">{{'AUTHENTICATION.IGNORE'| translate}}</span>
+          <svg-icon src="../../../../../assets/svg/arrow_icon.svg"
+          [applyCss]="true" class="icon-black svg-rotate-side" [svgStyle]="{ 'width.px':11 }">
+        </svg-icon>
+       </a>
+      </div>
+    </div>
+    <div class="col-lg-6 full-height px-0 side  text-center pt-5" [ngClass]="{'side-backGround1': background==='1','side-backGround2': background==='2'}">  
+      <span class="title">
+          {{title}}
+      </span>
+    </div>
+  </div>
+</div>

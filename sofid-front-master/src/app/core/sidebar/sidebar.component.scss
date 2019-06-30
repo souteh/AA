@@ -1,0 +1,197 @@
+@import "../../../assets/scss/variables";
+
+:host {
+   
+  a {
+outline:0;
+  
+}
+  #body-row {
+    margin-left: 0;
+    margin-right: 0;
+    min-height: 100vh;
+    min-width: 100vh;
+  }
+  #sidebar-container {
+    min-height: 100vh;
+    height: 100vh;
+    background-color: $black !important;
+    padding: 0;
+    background-color: $black !important;
+  }
+  .list-group-item{
+      background-color: transparent !important;
+  }
+  .icon-white:hover {
+   
+    .first{
+     
+   fill: $primary-color-dark !important;
+    }
+  }
+
+  .sidebar-expanded {
+    width: 260px;
+
+    transition: width 0.2s;
+  }
+  .sidebar-collapsed {
+    width: 60px;
+    margin-bottom:65px;
+    transition: width 0.2s;
+  }
+  .btn-expanded {
+    transform: rotate(0deg);
+    animation-name: animation-rotate-left;
+    animation-duration: 0.5s;
+  }
+  .btn-collapsed {
+    transform: rotate(180deg);
+    animation-name: animation-rotate-right;
+    animation-duration: 0.5s;
+  }
+  @keyframes animation-rotate-right {
+    0% {
+      transform: rotate(0deg);
+      transform-origin: center center;
+    }
+    100% {
+      transform: rotate(180deg);
+      transform-origin: center center;
+    }
+  }
+  @keyframes animation-rotate-left {
+    0% {
+      transform: rotate(180deg);
+      transform-origin: center center;
+    }
+    100% {
+      transform: rotate(0deg);
+      transform-origin: center center;
+    }
+  }
+  .logo {
+  
+    margin-bottom: 80px;
+  }
+  .logo-title {
+    padding-bottom: 6px;
+    margin-right: 30px;
+    span {
+      font-size: 1.9rem;
+      font-weight: bold;
+    }
+  }
+  .small-logo {
+    width: 18px;
+    height: 18px;
+  }
+  /* Menu item*/
+  #sidebar-container .list-group a {
+    height: 50px;
+    color: white;
+  }
+
+  /* Submenu item*/
+  #sidebar-container .list-group .sidebar-submenu a {
+    height: 45px;
+    padding-left: 30px;
+  }
+  .sidebar-submenu {
+    font-size: 0.9rem;
+  }
+
+  .sidebar-separator-title {
+    min-width: 60px;
+    min-height: 35px;
+    background-color: $black;
+  }
+  .sidebar-separator {
+    height: 25px;
+  }
+  .logo-separator {
+    height: 60px;
+  }
+  .title-menu-item {
+    padding-left: 3px;
+  }
+  a {
+    &.subMenuItem {
+      padding-left: 26px;
+    }
+    &.menuItem {
+      background-color: $black !important;
+      color: $white !important;
+      font-weight: bold;
+      font-size: 0.9rem;
+      &.active {
+          border-left: 4px solid  $primary-color-dark;
+        outline: none;
+        color: $primary-color-dark !important;
+        .icon-white {
+          fill: $primary-color-dark !important;
+        }
+      }
+
+      &:hover {
+        color: $black !important;
+        background-color: $white !important;
+        .icon-white {
+          fill: $black !important;
+        }
+      }
+    }
+  }
+  .divSubMenuItem {
+    color: $white !important;
+    font-weight: bold;
+    font-size: 0.9rem;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    &.active {
+      color: $primary-color-dark !important;
+      a {
+        outline: none;
+        &.subMenuItem {
+          color: $primary-color-dark !important;
+        }
+      }
+    }
+
+    &:hover {
+      color: $black !important;
+      background-color: $white !important;
+      min-width: 260px;
+      a {
+        &.subMenuItem {
+          color: $black !important;
+        }
+      }
+    }
+    .linkmenu {
+      padding: 0px 10px 0px 10px;
+    }
+  }
+  a {
+    &.menuItemCollapse {
+      .icon-white {
+        fill: $white !important;
+      }
+      &.active {
+        outline: none;
+        .icon-white {
+          fill: $primary-color-dark !important;
+        }
+      }
+      &:hover {
+        .icon-white {
+          fill: $primary-color-dark !important;
+        }
+      }
+    }
+  }
+  .iconCollapsed{
+    height:40px;
+  }
+}

@@ -1,0 +1,48 @@
+@import "../../../../assets/scss/variables";
+:host {
+  .mypanel {
+    background-color: $black;
+    color: $white;
+    font-weight: bold;
+    &.active {
+      .title {
+        border-left: 4px solid $primary-color-dark;
+        color: $primary-color-dark;
+        .icon-white {
+          fill: $primary-color-dark !important;
+        }
+      }
+    }
+
+    .title {
+      background-color: $black;
+      width: 100%;
+      cursor: pointer;
+      margin-bottom: 4px;
+      padding: 12px 15px 12px 12px;
+      font-size: 0.9rem;
+      &:hover {
+        background-color: $white;
+        color: $black;
+        .icon-white {
+          fill: $black !important;
+        }
+      }
+    }
+    .body {
+      margin-top: -4px;
+      border-top: none;
+      background-color: $opaque-white;
+    }
+  }
+
+  .hidden {
+    display: none;
+  }
+  .svg-rotate-side {
+    transform: rotate(270deg);
+  }
+  .svg-rotate-down {
+    transform: rotate(90deg);
+  }
+}

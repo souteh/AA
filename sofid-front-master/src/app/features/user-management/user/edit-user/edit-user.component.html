@@ -1,0 +1,25 @@
+<div *ngIf="fields && fields.length>0" class="page-container">
+    <div class="header-action">
+        <a [satPopoverAnchorFor]="p" (click)="p.toggle()" class="btn">
+            <svg-icon src="../../../../../assets/svg/action_icon.svg" [applyCss]="true" class="icon-black" [svgStyle]="{ 'width.px':18 ,'height.px':18.18}">
+            </svg-icon>
+        </a>
+        <sat-popover #p horizontalAlign="end" verticalAlign="below">
+            <div class="info-wrapper">
+                <ul class="px-0">
+                    <li class="w-100 btn btn-secondary border-0 text-left">
+                        <a  class="outline-none"> {{'USER.ADDITION.LOCK'| translate}}</a>
+                    </li>
+                    <li class="w-100 btn btn-secondary border-0 text-left">
+                        <a class="outline-none"> {{'USER.ADDITION.UNLOCK'| translate}}</a>
+                    </li>
+                    <li class="w-100 btn btn-secondary border-0 text-left">
+                        <a class="outline-none">{{'USER.ADDITION.ACTIVATE'| translate}}</a>
+                    </li>
+                </ul>
+            </div>
+        </sat-popover>
+    </div>
+    <app-dynamic-form-builder [fields]=fields (onsubmit)='create($event)' (oncancel)='cancel($event)' type="creation"
+        [InitValue]="user" cssClass="col-3"></app-dynamic-form-builder>
+</div>

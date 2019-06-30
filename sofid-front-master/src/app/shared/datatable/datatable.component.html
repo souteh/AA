@@ -1,0 +1,317 @@
+<div class="d-flex justify-content-between">
+  <div class="selectdiv d-flex">
+    <div class="position-relative " *ngIf="config && config.showFilterHeader">
+      <svg-icon src="../../../../../assets/svg/search_icon.svg" [applyCss]="true" class="position-absolute icon-search"
+        [svgStyle]="{ 'width.px':18.18,'height.px':18.18 }">
+      </svg-icon>
+      <input type="text" class="form-control form-control-search" [ngClass]="{
+            'shrink': switchSearchIcon,
+            'expend': !switchSearchIcon
+          }" placeholder="{{'BUTTON.SEARCH' | translate}}" (click)="expand()">
+    </div>
+    <a *ngIf="!switchSearchIcon" (click)="advanceSearch()" class="mx-1" class="btn btn-secondary border-left-0 px-2 py-0">
+      <svg-icon src="../../../../../assets/svg/search_avanced_icon.svg" [applyCss]="true" class="icon-search"
+        [svgStyle]="{ 'width.px':18.18,'height.px':18.18 }">
+      </svg-icon>
+    </a>
+    <select class="custom-select select-page mb-3 ml-1" style="width: auto" name="pageSize"
+      [(ngModel)]="dataService.pageSize">
+      <option [value]="10">10</option>
+      <option [value]="50">50</option>
+      <option [value]="100">100</option>
+    </select>
+  </div>
+  <div>
+    <ng-content></ng-content>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <div [perfectScrollbar]="configScroll"  style="position: relative;width: 100%;overflow: auto;" class="ps ps-show-always">
+      <table class="table" *ngIf="config && !config.serverSide">
+        <thead>
+          <tr>
+            <th *ngFor="let item of columns" class="p-0" [attr.width]="getColumnWidth()">
+              <div>
+                <div class="header-cell h-100" [class.border-b]="item.filter">
+                  <a [sortable]="item.property" (sort)="onSort($event)" class="noselect w-100 h-100 d-flex pr-1">
+                    <span class="mr-2">{{item.label | translate}}</span>
+                    <ng-container *ngIf="sortDirection; else elseTemplate" class="mb-1">
+                      <span *ngIf="sortDirection==='asc' && sortColumn!==item.property">
+                        <svg-icon src="../../../../../assets/svg/tri.svg"
+                          [svgStyle]="{ 'width.px':18.18 , 'height.px':18.18 }">
+                        </svg-icon>
+                      </span>
+                      <span *ngIf="sortDirection==='desc' && sortColumn!==item.property">
+                        <svg-icon src="../../../../../assets/svg/tri.svg"
+                          [svgStyle]="{ 'width.px':18.18 , 'height.px':18.18}">
+                        </svg-icon>
+                      </span>
+                      <span *ngIf="sortDirection==='asc' && sortColumn===item.property">
+                        <svg-icon src="../../../../../assets/svg/tri_croissant.svg"
+                          [svgStyle]="{ 'width.px':20.18 , 'height.px':10.18 }">
+                        </svg-icon>
+                      </span>
+                      <span *ngIf="sortDirection==='desc' && sortColumn===item.property">
+                        <svg-icon src="../../../../../assets/svg/tri_decroissant.svg"
+                          [svgStyle]="{ 'width.px':20.18, 'height.px':10.18 }">
+                        </svg-icon>
+                      </span>
+                    </ng-container>
+                    <ng-template #elseTemplate>
+                      <span>
+                        <svg-icon src="../../../../../assets/svg/tri.svg"
+                          [svgStyle]="{ 'width.px':18.18 , 'height.px':18.18}">
+                        </svg-icon>
+                      </span>
+                    </ng-template>
+                  </a>
+                </div>
+                <div class="{{defaultLanguage.rtl ? 'pl-5' : 'pr-5' }}">
+                  <div class=" my-1 position-relative " *ngIf="item.filter && item.filter.type==='text'">
+                    <svg-icon src="../../../../../assets/svg/search_icon.svg" [applyCss]="true"
+                      class="position-absolute icon-imput" [svgStyle]="{ 'width.px':18.18,'height.px':18.18 }">
+                    </svg-icon>
+                    <input type="text" class="form-control filter-input" [(ngModel)]="dataService.filter[item.property]"
+                      (keyup)='updateFilter($event,item.property)'>
+                  </div>
+                </div>
+                <div class="{{defaultLanguage.rtl ? 'pl-5' : 'pr-5' }}">
+                  <div class="  my-1" *ngIf="item.filter && item.filter.type==='boolean'">
+                    <select class='form-control  ' (change)="updateFilter($event,item.property)"
+                      [(ngModel)]="dataService.filter[item.property]">
+                      <option value="">{{"DATATABLE_ALL" | translate}}</option>
+                      <option value="true">{{"DATATABLE_YES" | translate}}</option>
+                      <option value="false">{{"DATATABLE_NO" | translate}}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="{{defaultLanguage.rtl ? 'pl-5' : 'pr-5' }}">
+                  <div class="  my-1" *ngIf="item.filter && item.filter.type==='checkbox'">
+                    <select class='form-control  ' (change)="updateFilter($event,item.property)"
+                      [(ngModel)]="dataService.filter[item.property]">
+                      <option value="">{{"DATATABLE_ALL" | translate}}</option>
+                      <option value="true">{{"DATATABLE_ACTIF" | translate}}</option>
+                      <option value="false">{{"DATATABLE_NOTACTIF" | translate}}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="{{defaultLanguage.rtl ? 'pl-5' : 'pr-5' }}">
+                  <div class="  my-1" *ngIf="item.filter && item.filter.type==='list'">
+                    <select class='form-control ' (change)="updateFilter($event,item.property)"
+                      [(ngModel)]="dataService.filter[item.property]">
+                      <option value=""></option>
+                      <option [value]="itemFilter.key" *ngFor="let itemFilter of item.filter.values">{{itemFilter.value
+                        | translate}}</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </th>
+            <th width="10%" class="p-0" *ngIf="actions && actions.length>0">
+                <div class="header-cell border-b transparent-title"><a></a></div>
+                <div style="height: 50px"></div>
+            </th>
+          </tr>
+        </thead>
+
+        <tbody *ngIf="data && data!==null && data.length > 0;else empty">
+          <tr *ngFor="let itemData of data$ | async">
+            <td *ngFor="let item of columns">
+              <div *ngIf="item.type === 'string'">
+                <span class="text-field">{{itemData[item.property]}}</span>
+              </div>
+              <div *ngIf="item.type === 'number'">
+                  <span class="text-field">{{itemData[item.property]}}</span>
+                </div>
+              <div *ngIf="item.type === 'enum'">
+                <div class="text-field">{{item.val+'.'+itemData[item.property] | translate }} </div>
+              </div>
+              <div *ngIf="item.type === 'date'">
+                <div class="text-field">{{itemData[item.property] | date: 'dd/MM/yyyy HH:mm'}}</div>
+              </div>
+              <div *ngIf="item.type === 'template'">
+                <ng-container *ngIf="item.cellTemplate" [ngTemplateOutlet]="item.cellTemplate"
+                  [ngTemplateOutletContext]="{ $implicit: itemData }">
+                </ng-container>
+              </div>
+              <div *ngIf="item.type === 'boolean'">
+                <div *ngIf="itemData[item.property]">
+                  <svg-icon src="../../../assets/svg/check.svg" [applyCss]="true" class="icon-success"
+                    [svgStyle]="{ 'width.px':18.18,'height.px':18.18 }">
+                  </svg-icon>
+                </div>
+                <div *ngIf="!itemData[item.property]">
+                  <svg-icon src="../../../assets/svg/check.svg" [applyCss]="true" class="icon-grey-4"
+                    [svgStyle]="{ 'width.px':18.18 ,'height.px':18.18}">
+                  </svg-icon>
+                </div>
+              </div>
+              <div *ngIf="item.type === 'checkbox'">
+                <div class="custom-control custom-checkbox" dir="{{defaultLanguage.rtl ? 'rtl' : '' }}">
+                  <input id="{{itemData.id}}" type="checkbox" class="custom-control-input"
+                    [checked]="itemData[item.property] "
+                    [disabled]="itemData[item.disableProp] && itemData[item.disableProp]===true"
+                    (change)=onCheck($event,itemData,item.property) />
+                  <label class="custom-control-label" for="{{itemData.id}}"></label>
+                </div>
+              </div>
+
+            </td>
+            <td class="d-flex justify-content-between " *ngIf="actions && actions.length>0">
+              <div *ngFor='let action of actions'>
+                <app-action [action]=action (clickAction)=onClickAction($event,itemData) [item]="itemData">
+                </app-action>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+        <ng-template #empty>
+          {{"NO_RESULT"| translate}}
+        </ng-template>
+      </table>
+      <table class="table" *ngIf="config.serverSide && config.serverSide===true"  [ngStyle]="{'width': config.custumWidth  }">
+        <thead>
+          <tr>
+            <th *ngFor="let item of columns" class="p-0" [attr.width]="getColumnWidth()">
+              <div class="header-cell h-100" [class.border-b]="item.filter">
+                <a [sortable]="item.property" (sort)="onSort($event)" class="noselect w-100 h-100 d-flex pr-1">
+                  <span class="mr-2">{{item.label | translate}}</span>
+                  <ng-container *ngIf="sortDirection; else elseTemplate" class="mb-1">
+                    <span *ngIf="sortDirection==='asc' && sortColumn!==item.property">
+                      <svg-icon src="../../../../../assets/svg/tri.svg"
+                        [svgStyle]="{ 'width.px':18.18 , 'height.px':18.18 }">
+                      </svg-icon>
+                    </span>
+                    <span *ngIf="sortDirection==='desc' && sortColumn!==item.property">
+                      <svg-icon src="../../../../../assets/svg/tri.svg"
+                        [svgStyle]="{ 'width.px':18.18 , 'height.px':18.18}">
+                      </svg-icon>
+                    </span>
+                    <span *ngIf="sortDirection==='asc' && sortColumn===item.property">
+                      <svg-icon src="../../../../../assets/svg/tri_croissant.svg"
+                        [svgStyle]="{ 'width.px':20.18 , 'height.px':10.18 }">
+                      </svg-icon>
+                    </span>
+                    <span *ngIf="sortDirection==='desc' && sortColumn===item.property">
+                      <svg-icon src="../../../../../assets/svg/tri_decroissant.svg"
+                        [svgStyle]="{ 'width.px':20.18, 'height.px':10.18 }">
+                      </svg-icon>
+                    </span>
+                  </ng-container>
+                  <ng-template #elseTemplate>
+                    <span>
+                      <svg-icon src="../../../../../assets/svg/tri.svg"
+                        [svgStyle]="{ 'width.px':18.18 , 'height.px':18.18}">
+                      </svg-icon>
+                    </span>
+                  </ng-template>
+                </a>
+              </div>
+              <div class="pr-5">
+                <div class=" my-1 position-relative " *ngIf="item.filter && item.filter.type==='text'">
+                  <svg-icon src="../../../../../assets/svg/search_icon.svg" [applyCss]="true"
+                    class="position-absolute icon-imput" [svgStyle]="{ 'width.px':18.18,'height.px':18.18 }">
+                  </svg-icon>
+                  <input type="text" class="form-control filter-input" (keyup)='updateFilter($event,item.property)'>
+                </div>
+              </div>
+              <div class="pr-5">
+                <div class="  my-1" *ngIf="item.filter && item.filter.type==='boolean'">
+                  <select class='form-control  ' (change)="updateFilter($event,item.property)">
+                    <option value="">{{"DATATABLE_ALL" | translate}}</option>
+                    <option value="true">{{"DATATABLE_YES" | translate}}</option>
+                    <option value="false">{{"DATATABLE_NO" | translate}}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="pr-5">
+                <div class="  my-1" *ngIf="item.filter && item.filter.type==='checkbox'">
+                  <select class='form-control  ' (change)="updateFilter($event,item.property)">
+                    <option value="">{{"DATATABLE_ALL" | translate}}</option>
+                    <option value="true">{{"DATATABLE_ACTIF" | translate}} </option>
+                    <option value="false">{{"" | translate}}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="pr-5">
+                <div class="  my-1" *ngIf="item.filter && item.filter.type==='list'">
+                  <select class='form-control ' (change)="updateFilter($event,item.property)">
+                    <option value=""></option>
+                    <option value="{{item.key}}" *ngFor="let item of item.filter.values">{{item.value | translate}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </th>
+            <th  [ngStyle]="{'width': config.actionWidth  }">
+              <div class="header-cell"><a></a></div>
+              <div style="height: 27px"></div>
+            </th>
+          </tr>
+        </thead>
+
+        <tbody *ngIf="data && data!==null && data.length > 0;else empty">
+          <tr *ngFor="let itemData of data ">
+            <td *ngFor="let item of columns">
+              <div *ngIf="item.type === 'string' || item.fieldType === 'TEXT' ">
+                <span class="text-field">{{itemData[item.property]}}</span>
+              </div>
+              <div *ngIf="item.type === 'enum'">
+                <div class="text-field">{{item.val+'.'+itemData[item.property] | translate }} </div>
+              </div>
+              <div *ngIf="item.type === 'date' || item.fieldType === 'DATE'">
+                <div class="text-field">{{itemData[item.property] | date: 'dd/MM/yyyy'}}</div>
+              </div>
+              <div *ngIf="item.fieldType === 'SELECT'">
+                <div class="text-field">
+                  <span *ngFor="let itemSelect of itemData[item.property]; let i=index">
+                    <span *ngIf="i>0">/</span> {{itemSelect.value}}
+                  </span>
+                </div>
+              </div>
+              <div *ngIf="item.type === 'checkbox' || item.fieldType === 'CHECKBOX'">
+                <div class="custom-control custom-checkbox">
+                  <input id="{{itemData.id}}" type="checkbox" class="custom-control-input"
+                    [checked]="itemData[item.property] "
+                    [disabled]="itemData[item.disableProp] && itemData[item.disableProp]===true"
+                    (change)=onCheck($event,itemData,item.property) />
+                  <label class="custom-control-label" for="{{itemData.id}}"></label>
+                </div>
+              </div>
+              <div *ngIf="item.type === 'boolean'">
+                <div *ngIf="itemData[item.property]">
+                  <svg-icon src="../../../../../assets/svg/check.svg" [applyCss]="true" class="icon-success"
+                    [svgStyle]="{ 'width.px':18.18 }">
+                  </svg-icon>
+                </div>
+                <div *ngIf="!itemData[item.property]">
+                  <svg-icon src="../../../../../assets/svg/check.svg" [applyCss]="true" class="icon-grey-4"
+                    [svgStyle]="{ 'width.px':18.18 }">
+                  </svg-icon>
+                </div>
+              </div>
+            </td>
+            <td class="d-flex justify-content-between ">
+              <div *ngFor='let action of actions'>
+                <app-action [action]=action (clickAction)=onClickAction($event,itemData) [item]="itemData">
+                </app-action>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+        <ng-template #empty>
+          {{"NO_RESULT"| translate}}
+        </ng-template>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="total$ | async" class='mb-5'>
+  <ngb-pagination [collectionSize]="total$ | async" (pageChange)="setPages($event)" [(page)]="dataService.page"
+    [pageSize]="dataService.pageSize" [rotate]="true" [maxSize]="5" class="d-flex justify-content-center"
+    [boundaryLinks]="true">
+  </ngb-pagination>
+</div>
+ 

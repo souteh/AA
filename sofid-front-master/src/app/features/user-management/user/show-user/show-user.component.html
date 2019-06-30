@@ -1,0 +1,11 @@
+<div *ngIf="fields && fields.length>0" class="page-container">
+    <app-dynamic-form-builder
+    [fields]=fields
+    readOnly="true"
+    (onsubmit)='create($event)' 
+    (oncancel)='cancel($event)' 
+    (onupdate)='update($event)' 
+    type="creation" 
+    [InitValue]="user"
+    cssClass="col-3"></app-dynamic-form-builder>
+</div>

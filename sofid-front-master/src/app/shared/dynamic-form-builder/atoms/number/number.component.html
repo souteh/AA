@@ -1,0 +1,5 @@
+<div [formGroup]="form">
+    <input type="number" class="form-control" autocomplete="new-password"
+    [class.is-invalid]="form.controls[field.id].invalid && (form.controls[field.id].dirty || form.controls[field.id].touched)"
+     [id]="field.id"  [formControlName]="field.id">
+  </div> 

@@ -1,0 +1,63 @@
+<div class="page-container">
+    <div dir="{{defaultLanguage.rtl ? 'rtl' : '' }}" [class.text-right]="defaultLanguage.rtl">
+      <form [formGroup]="roleForm" (ngSubmit)="createRole()" class="mb-5">
+        <div class="row justify-content-md-center">
+          <div class="col-6">
+            <div class="form-group" [class.text-right]="defaultLanguage.rtl">
+              <label>{{'ROLE.ADDITION.NAME'| translate}} <span class="star">*</span></label>
+              <app-input-traduction [group]="roleForm" [language]="defaultLanguage.rtl" groupName="i18nTextName"
+                controlName=name></app-input-traduction>
+            </div>
+            <div class="form-group">
+              <label>{{'ROLE.ADDITION.DESCRIPTION'| translate}}</label>
+              <app-input-traduction [group]="roleForm" [language]="defaultLanguage.rtl" groupName="i18nTextDescription"
+                controlName=description></app-input-traduction>
+            </div>
+            <div class="form-group">
+              <label>{{'ROLE.ADDITION.CODE'| translate}} <span class="star">*</span> </label>
+              <input type="text" class="form-control" formControlName="code">
+            </div>
+            <div class="form-group">
+              <label>{{'ROLE.ADDITION.TYPE'| translate}}</label><br>
+              <div *ngIf="domain && domain.length > 0 ">
+                <app-accordion>
+                  <app-group *ngFor="let item of domain" title="{{item.name}}">
+                    <div class="row mb-3">
+                      <div class="checkbox checkbox-primary col-6 mb-1" dir="{{defaultLanguage.rtl ? 'rtl' : '' }}">
+                        <input class="custom-control-input" type="checkbox" id="{{item.name}}" (change)='selectAll($event,item)'>
+                        <label class="custom-control-label" for="{{item.name}}">
+                          {{'ROLE.ADDITION.SELECT_ALL'| translate}}
+                        </label>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="checkbox checkbox-primary col-6 mb-1" *ngFor="let action of item.actions; let i = index"
+                        [formArrayName]="item.id" dir="{{defaultLanguage.rtl ? 'rtl' : '' }}">
+                        <input class="custom-control-input" type="checkbox" [formControlName]="i" id="{{action.id}}"
+                          (change)='selectAction($event,item)'>
+                        <label class="custom-control-label" for="{{action.id}}">
+                          {{action.name}}
+                        </label>
+                      </div>
+                    </div>
+                  </app-group>
+                </app-accordion>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-md-center mt-3">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary w-25 mr-1" [disabled]="!roleForm.valid">{{'BUTTON.VALIDATE'|
+                  translate}}</button>
+                <button type="button" class="btn btn-secondary w-25" [routerLink]="['/role']">{{'BUTTON.CANCEL'|
+                  translate}}</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>

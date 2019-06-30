@@ -1,0 +1,69 @@
+<div id="sidebar-container" class="d-block fixed-top" [ngClass]="{'sidebar-expanded': !isCollapsed,'sidebar-collapsed': isCollapsed}">
+    <ul class="list-group">
+            <li class="text-right"  [ngClass]="{'sidebar-expanded fixed-top ': !isCollapsed,'list-group-item sidebar-separator-title text-muted d-flex align-items-center d-none sidebar-collapsed iconCollapsed': isCollapsed}">
+                    <a  (click)=" SidebarCollapse()" class="btn btn-link" role="button" 
+                    [ngClass]="{'btn-expanded': !isCollapsed,'btn-collapsed': isCollapsed}"
+                    style="width: 50px;">
+                    <svg-icon src="../../../../../assets/svg/collapse_icon.svg"
+                    [applyCss]="true" class="icon-white "  [svgStyle]="{ 'width.px':16,'height.px' :16 }" >
+                  </svg-icon>
+                </a>
+            </li>
+        <li *ngIf="!isCollapsed" class= " logo d-flex align-items-center menu-collapsed">
+            <a data-toggle="sidebar-colapse" class="list-group-item list-group-item-action d-flex justify-content-center" routerLink="/home">
+          <svg-icon src="./../../../assets/svg/logo_icon.svg"[svgStyle]="{ 'width.px':143,'height.px' :70 }"
+                    [applyCss]="true"
+                        class="icon-logo"
+                         >
+                  </svg-icon>
+                 </a>
+        </li>
+      
+        <ng-container *ngFor="let menuItem of menuItems; let i = index">
+            <div *ngIf="menuItem.submenu">
+                <app-accordion-menu *ngIf="!isCollapsed">
+                    <app-group-menu title="{{menuItem.text | translate}}" icon="{{menuItem.icon}}">
+                        <div class="divSubMenuItem " *ngFor="let subMenuItem of menuItem.submenu; let i = index"
+                            routerLinkActive="active">
+                            <div class="linkmenu  ">
+                                <a class="subMenuItem d-flex align-items-center justify-content-start" [routerLink]="subMenuItem.route" (click)="activateParent()"
+                                    routerLinkActive="active">
+                                    {{subMenuItem.text | translate}}
+                                </a>
+                            </div>
+                        </div>
+                    </app-group-menu>
+                </app-accordion-menu>
+                <li *ngIf="isCollapsed" class="d-flex">
+                    <a data-toggle="collapse" aria-expanded="false" class="w-100"
+                        routerLinkActive="active" (click)="currentPage='menuItem.route'" (click)="SidebarOpen()"
+                        >
+                        <div class="d-flex w-100 h-100 justify-content-center align-items-center">
+                            <span class="icon-menu">
+                                <svg-icon src="{{menuItem.icon}}" [applyCss]="true" class="icon-white" [svgStyle]="{ 'width.px':18, 'height.px':15 }">
+                                </svg-icon>
+                            </span>
+                            <span class="d-none ml-auto sr-only">(current)</span>
+                        </div>
+                    </a>
+                </li>
+            </div>
+            <li *ngIf="!menuItem.submenu" class="nav-item " [ngClass]="{'nav-item': !isCollapsed,'icon-item  d-flex align-items-center': isCollapsed}">
+                <a class="list-group-item w-100"  (click)="cloeseSubmenu()"
+                    routerLinkActive="active" (click)="currentPage='menuItem.route'" [ngClass]="{'menuItem': !isCollapsed,'menuItemCollapse': isCollapsed}"
+                    [routerLink]="menuItem.route" >
+                    <div class="d-flex w-100  align-items-center mt-1" [ngClass]="{'justify-content-start': !isCollapsed,'justify-content-center': isCollapsed}">
+                        <span class=" icon-menu mr-1">
+                            <svg-icon src="{{menuItem.icon}}" [applyCss]="true" class="icon-white" [svgStyle]="{ 'width.px':18, 'height.px':15 }">
+                            </svg-icon>
+                        </span>
+                        <span *ngIf="!isCollapsed" class="title-menu-item"> {{menuItem.text | translate}} </span>
+                        <span class="sr-only">(current)</span>
+                    </div> 
+                </a>
+            </li>
+        </ng-container>
+       
+    </ul>
+   
+</div>

@@ -1,0 +1,60 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: $MICROSERVICE
+  namespace: sofid
+  labels:
+    app: $MICROSERVICE
+    track: stable
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: $MICROSERVICE
+  template:
+    metadata:
+      labels:
+        app: $MICROSERVICE
+        track: stable
+    spec:
+#	  hostNetwork: true                     ###used with sofid-api-gateway only
+      imagePullSecrets:
+        - name: regcred
+      containers:
+      - name: $MICROSERVICE
+        image: $REGISTRY_pull/$TAG
+        imagePullPolicy: Always
+        ports:
+        - name: $MICROSERVICE
+          containerPort: $PORT
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: $MICROSERVICE-svc
+  namespace: sofid
+  labels:
+    app: $MICROSERVICE
+spec:
+#  type: NodePort
+  ports:
+    - name: $MICROSERVICE
+      port: $PORT
+ #     nodePort: xxxx 
+  selector:
+    app: $MICROSERVICE
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: $MICROSERVICE-ingress
+  namespace: sofid
+spec:
+  rules:
+  - host: 
+    http:
+      paths:
+      - backend:
+          serviceName: $MICROSERVICE-svc
+          servicePort: $PORT

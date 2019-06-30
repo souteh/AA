@@ -1,0 +1,40 @@
+.myCustomModalClass {
+    h4 .modal-title{
+        font-size: 1.25rem !important;
+        text-align: center !important;
+   }
+    .modal-dialog {
+        margin-top: 50px;
+        position: fixed;
+        width: 550px;
+        height:100%;
+        right: 0px;
+        animation-name: animation-slide-right;
+        animation-duration: 0.4s;
+   }
+    .modal-content {
+        height: 100%;
+        width: 100%;
+        overflow-y: auto;
+        overflow-x: auto;
+        margin-bottom:25px;
+        .modal-header{
+            background-color: $supporting-color-blue !important;
+            color:$white;
+            font-size: 1.25rem !important;
+            text-align: center !important;
+            min-height: 3.25rem;
+       }
+        .modal-body{
+            padding: 30px!important;
+       }
+   }
+    @keyframes animation-slide-right {
+        0% {
+            transform: translateX(100%);
+       }
+        100% {
+            transform: translateX(-2px);
+       }
+   }
+}

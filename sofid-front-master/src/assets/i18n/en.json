@@ -1,0 +1,310 @@
+{
+    "NAVBAR": {
+        "LANGUAGE": " Change language",
+        "DASHBOARD": "Home",
+        "USER": "Utilisateurs",
+        "USER_MANAGEMENT": "Users management",
+        "ROLE_MANAGEMENT": "Role management",
+        "FIELD_MANAGEMENT": "Users form configuration",
+        "REPORTING": "Reporting",
+        "SETTING": "Paramètres généraux",
+        "MASS_IMPORT": "Import users",
+        "MASS_UPDATE": "Modifier en masse",
+        "MASS_DELETE": "Supprimer en masse"
+    },
+    "SELFCARE": {
+        "PROFIL": "Profil",
+        "SETTING": "Paramètres",
+        "LOGOUT": "Déconnexion"
+    },
+    "BUTTON": {
+        "VALIDATE": "Validate",
+        "MASS_IMPORT": "Créer en masse",
+        "MASS_UPDATE": "Modifier en masse",
+        "MASS_DELETE": "Supprimer en masse",
+        "SAVE": "Save",
+        "CONFIRM": "Confirm",
+        "CANCEL": "Cancel",
+        "SEARCH": "Rechercher",
+        "REINIT": "Réinitialiser",
+        "UPDATE": "Modifier",
+        "VERIFY": "Verify"
+    },
+    "FORM": {
+        "REQUIRED": "est obligatoire"
+    },
+    "DASHBOARD": {
+        "HOME": "Home"
+    },
+    "TOASTER": {
+        "SUCCESS": {
+            "TITLE": "Success",
+            "BODY": "Added successfully"
+        },
+        "ERROR": {
+            "TITLE": "Failure",
+            "BODY": ""
+        },
+        "DELETE": {
+            "SUCCESS": {
+                "TITLE": "Success",
+                "BODY": "Deleted successfully"
+            },
+            "ERROR": {
+                "TITLE": "Failure",
+                "BODY": ""
+            }
+        },
+        "UPDATE": {
+            "SUCCESS": {
+                "TITLE": "Success",
+                "BODY": "Edited successfully"
+            },
+            "ERROR": {
+                "TITLE": "Failure",
+                "BODY": ""
+            }
+        }
+    },
+    "ROLE": {
+        "LISTING": {
+            "BREADCRUMB": "Role management",
+            "CODE": "Role code",
+            "NAME": "Role name",
+            "PAGE_TITLE": "Role list",
+            "DESCRIPTION": "Role description",
+            "ADD_ROLE": "Add role",
+            "DELETE_ROLE": " Are you sure you want to delete this role?",
+            "MODAL_CONFIRMATION_TITLE": " Deletion confirmation",
+            "ACTION": {
+                "DISPLAY": "Display",
+                "EDIT": "Edit",
+                "DELETE": "Delete"
+            }
+        },
+        "ADDITION": {
+            "BREADCRUMB": "Add role",
+            "NAME": "Role name",
+            "PAGE_TITLE": "Add role",
+            "DESCRIPTION": "Role description",
+            "CODE": "Role code",
+            "TYPE": "Type",
+            "SELECT_ALL": " Select All"
+        },
+        "EDITION": {
+            "BREADCRUMB": "Edit role",
+            "TITLE": "Edit role"
+        },
+        "SHOW": {
+            "BREADCRUMB": "Consult role",
+            "PAGE_TITLE": "Consult role"
+        }
+    },
+    "FIELD": {
+        "ADDITION": {
+            "BREADCRUMB": "Add field",
+            "TITLE": "Add field",
+            "NAME": "Field name",
+            "REGEX": "Regular expression",
+            "TYPE": "Type",
+            "ERRORMSG": "Failure message",
+            "POSITION": "Position",
+            "ROW": "Row",
+            "COLUMN": "Column",
+            "VISIBLE": "Visible",
+            "MANDATORY": "Mandatory",
+            "VISIBCONDITION": "Condition of visibility",
+            "MANDACONDITION": "Condition of obligation",
+            "FIELD_VISIB": "Field",
+            "FIELD_OPT": "Operator",
+            "FIELD_CRITERIA": "Criteria",
+            "DEFAULT": "Display in the search result",
+            "EDITABLE": "Editable",
+            "EXPORTABLE": "Exportable",
+            "FILTER": "Add as a search filter",
+            "DISPLAYORDER": "Display order",
+            "ORDEREXPORT": "Export order",
+            "VALIDATE": "Validate",
+            "CANCEL": "Cancel",
+            "TITLE_MSG_SUCCES": "Users form configuration",
+            "BODY_MSG_SUCCES": "Added successfully",
+            "TITLE_MSG_ERROR": "Addition failed",
+            "SOURCE": "Source",
+            "AUTO_COMPLETE": "Auto complete",
+            "MULTIPLE": "Multiple"
+        },
+        "EDITION": {
+            "BREADCRUMB": "Edit field",
+            "TITLE": "Edit field",
+            "TITLE_MSG_SUCCES": "Users form configuration",
+            "BODY_MSG_SUCCES": "Edited successfully",
+            "TITLE_MSG_ERROR": "Edition failed"
+        },
+        "DISPLAY": {
+            "BREADCRUMB": "Consult field",
+            "TITLE": "Consult field",
+            "EDIT": "Edit",
+            "CANCEL": "Cancel"
+        },
+        "LISTING": {
+            "BREADCRUMB": "Users form configuration",
+            "TITLE": "Listing fields",
+            "NAME": "Name",
+            "TYPE": "Type",
+            "POSITION": "Position",
+            "VISIBLE": "Visible",
+            "MANDATORY": "Obligatoire",
+            "EXPORTABLE": "Exportable",
+            "STATUS": "Status",
+            "ADD_FIELD": "Add field",
+            "DELETE_FIELD": "Are you sure you want to delete this field?",
+            "ACTION": {
+                "DISPLAY": "Display",
+                "EDIT": "Edit",
+                "DELETE": "Delete"
+            }
+        },
+        "FIELD_TYPE": {
+            "DATE": "Date",
+            "NUMBER": "Numerical",
+            "PASSWORD": "Password",
+            "PIN_CODE": "PIN code",
+            "SELECT": "Dropdown list",
+            "TEXT": "Text",
+            "CHECKBOX": "Checkbox"
+        }
+    },
+    "USER": {
+        "LISTING": {
+            "BREADCRUMB": "Gestion utilisateurs",
+            "TITLE": "Liste des utilisateurs",
+            "ADD_USER": "Ajouter utilisateur",
+            "EXPORT_USER": "Export users",
+            "DELETE_USER": "Etes-vous sûr de vouloir supprimer cet utilisateur ?",
+            "SEARCH": {
+                "TITLE": "Recheche avancé"
+            }
+        },
+        "ADDITION": {
+            "BREADCRUMB": "Nouveau utilisateur",
+            "PAGE_TITLE": "Nouveau utilisateur",
+            "LOCK": "Lock",
+            "UNLOCK": "Unlock",
+            "ACTIVATE": "Activate"
+        },
+        "EDITION": {
+            "BREADCRUMB": "Editer utilisateur",
+            "TITLE": "Editer utilisateur"
+        },
+        "DISPLAY": {
+            "BREADCRUMB": "Consulter un utilisateur",
+            "PAGE_TITLE": "Consulter un utilisateur"
+        }
+    },
+    "IMPORT": {
+        "TITLE": "Import des utilisateurs",
+        "TITLE_UPDATE": "Modification de utilisateurs",
+        "NAME_FILE": "Fichier template",
+        "UPLOAD_FILE": "Importer fichier",
+        "BTN_VALIDATE": "Valider",
+        "TITLE_POPUP": "Comment ca marche",
+        "FIELD_NAME": "Nom du champ",
+        "VALUE": "Valeur attendue",
+        "DOWNLOAD": "Telecharger"
+    },
+    "EXPORT_USER":{
+        "TITLE" : "Exports des utilisateurs",
+        "START_DATE" : "Générer entre le",
+        "END_DATE" : "Et le",
+        "GENERATED_BY" : "Générer par",
+        "BTN_SEARCH" : "Chercher",
+        "BTN_INIT" : "Réinitialiser",
+        "GENERATED_DATE":"Date de génération",
+        "END_GEN_DATE":"Date fin",
+        "EXECUTED_BY":"Exécuté par",
+        "NEMBER":"Nember",
+        "TIME":"Temps de traitement",
+        "EXPORT_STATUS":"Statut d'export",
+        "DOWNLOAD" :"Téléchargement",
+        "CSV":"CSV",
+        "EXCEL":"EXCEL",
+        "PDF":"PDF"
+
+    },
+    "PROFIL": {
+        "PAGE_TITLE": "Mon profil",
+        "BREADCRUMB": "Profil",
+        "SECURITY": {
+            "TITLE": "Sécurité",
+            "PASSWORD": "Mot de passe",
+            "PASSWORD_LINK": "Changer mot de passe",
+            "MODAL_PASSWORD_TITLE": "Changer mot de passe",
+            "SECRET_QUESTION": "Question de sécurité",
+            "SECRET_QUESTION_LINK": "Modifier ma question",
+            "MODAL_QUESTION_TITLE": "Modifier ma question",
+            "OLD_PASSWORD": "Ancien mot de passe",
+            "NEW_PASSWORD": "Nouveau mot de passe",
+            "CONFIRM_PASSWORD": "Confirmation nouveau mot de passe",
+            "QUESTION": "Question",
+            "RESPONSE": "Réponse",
+            "CANCEL": "Annuler",
+            "EDIT": "Editer",
+            "SAVE": "Enregistrer",
+            "VERIFICATION_TITLE": "Pour continuer, vérifier d'abord que c'est vous",
+            "NEXT": "Suivant",
+            "VERIFY": "Vérifier",
+            "VALIDATE": "Valider",
+            "PASSWORD_REQUIRED": "Ce champs est obligatoire",
+            "PASSWORD_PATTERN": "Doit contenir 8 caractères : 1 chiffre, 1 lettre majuscule, 1 caractère spécial",
+            "PASSWORD_CONFIRM": "Le mot de passe ne correspond pas",
+            "INVALID-PASSWORD": "Mot de passe invalide"        }
+    },
+    "TRANSLATION": "Traduction",
+    "NO_RESULT": "Aucun résultat",
+    "DATATABLE_YES": "Oui",
+    "DATATABLE_NO": "Non",
+    "DATATABLE_ALL": "Tout",
+    "DATATABLE_ACTIF": "Actif",
+    "DATATABLE_NOTACTIF": "Inactif",
+    "AUTHENTICATION": {
+        "IGNORE": "Skip ",
+        "LOGIN": {
+            "TITLE": "Welcome",
+            "LOGIN": "login",
+            "PASSWORD": "password",
+            "LANGUAGE": "Language",
+            "SAVE_LOGIN": "save my login",
+            "REINIT_PASSWORD": "reinit my password",
+            "CONNECTION": "Connection"
+        },
+        "SECRET_QUESTION": {
+            "TITLE": "Secret question",
+            "QUESTION": "Question ?",
+            "ANSWER": "Answer"
+        },
+        "PASSWORD_PAGE": {
+            "TITLE": "Change password",
+            "CURRENT_PASSWORD": "old password",
+            "NEW_PASSWORD": "New password",
+            "CONFIRM_PASSWORD": "Confirm password",
+            "MSG_REQUIRE": "Ce champs est obligatoire",
+            "MSG_PATTERN": "Doit contenir 8 caractères : 1 chiffre, 1 lettre majuscule, 1 caractère spécial",
+            "MSG_CONFIRM": "Password does not match"
+        },
+        "REINIT_PASSWORD_PAGE": {
+            "TITLE": "Réinitiliaser mot de passe",
+            "OLD_PASSWORD": "Ancien mot de passe",
+            "NEW_PASSWORD": "Nouveau mot de passe",
+            "CONFIRM_PASSWORD": "Confirmation nouveau mot de passe",
+            "MSG_REQUIRE": "Ce champs est obligatoire",
+            "MSG_PATTERN": "Doit contenir 8 caractères : 1 chiffre, 1 lettre majuscule, 1 caractère spécial",
+            "MSG_CONFIRM": "Le mot de passe ne correspond pas"
+        }
+    },
+    "LANGUAGE-SETTING": {
+        "PAGE_TITLE": "Langues",
+        "BREADCRUMB": "Paramètres généraux",
+        "DEFAULT-LANGUAGE": "Langue par défaut",
+        "OTHER-LANGUAGE": "Autres"
+    }
+}

@@ -1,0 +1,12 @@
+@import "../../../../../assets/scss/variables";
+
+:host{ 
+    .checkbox-label{
+        font-size: 0.875rem !important;
+        font-weight: 500 !important;
+        color: $obs-color-grey !important;
+    }
+    .star{
+        color : $functional-color-danger
+    }
+}

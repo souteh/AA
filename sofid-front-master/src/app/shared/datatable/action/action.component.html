@@ -1,0 +1,27 @@
+<div >
+    <span *ngIf="item && item[action.desabelProp] &&item[action.desabelProp]===true ,else nonDisable">
+            <a class="disabled">
+                    <svg-icon 
+                    src="../../../../../../assets/svg/{{action.icon}}_icon.svg"
+                    
+                    [applyCss]="true"
+                    [class]="action.cssClass"
+                    [svgStyle]="{ 'width.px':15 }"
+                    >
+                    </svg-icon>
+                  </a>
+    </span>
+    <ng-template #nonDisable>
+            <a (click)="actionName(action.actionevent)">
+                    <svg-icon 
+                    src="../../../../../../assets/svg/{{action.icon}}_icon.svg"
+                    
+                    [applyCss]="true"
+                    [class]="action.cssClass"
+                    [svgStyle]="{ 'width.px':15 }"
+                    >
+                    </svg-icon>
+                  </a>
+    </ng-template>
+</div>
+      

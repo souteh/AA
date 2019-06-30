@@ -1,0 +1,47 @@
+
+@import "./variables";
+
+.ng-select{
+    &.custom{
+        border:0px;
+        min-height: 0px;
+        border-radius: 0;
+        &.ng-select-focused{
+            .ng-select-container {
+                border-color: $black;
+                box-shadow: none;
+            }
+        }
+        .ng-select-container  {            
+            min-height: 40px;
+            border-radius: 0;
+            border-width: 2px!important;
+            .ng-value-container{
+                font-weight: 700;
+            }
+        }
+        .ng-dropdown-panel {
+            .ng-dropdown-panel-items{
+                .ng-option{
+                    color: $black;
+                    font-weight: bold;
+                    &.ng-option-selected {
+                        background-color: $black;
+                        color: $white;
+                        font-weight: bold;
+                    }
+                    &.ng-option-marked {
+                        background-color: $black;
+                        color: $white;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+    &.custom-error{
+        .ng-select-container  {
+            border-color: $functional-color-danger;    
+        }
+    }
+}

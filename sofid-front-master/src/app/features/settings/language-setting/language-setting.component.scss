@@ -1,0 +1,12 @@
+@import "../../../../assets/scss/variables";
+:host {
+.form-check-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  .fixed-bottom{
+      margin-left: 2.5rem;
+      margin-bottom: 2rem;
+      position:absolute;
+  }
+}

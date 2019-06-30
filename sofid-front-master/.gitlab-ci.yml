@@ -1,0 +1,97 @@
+variables:
+  SOURCES_DIR: .
+  SONAR_EXCLUSIONS_DIR: src/test/*
+  SONAR_EXCLUSIONS_DIR: 'node-modules/*'
+  OUTPUT_DIR: target
+  DEPLOY_CONTEXT: ''
+  VERSION: "6.0.0"
+  REGISTRY_push: "10.242.146.134:8083"
+  REGISTRY_pull: "10.242.146.134:8082"
+  NEXUS_USER: "nexus"
+  NEXUS_PASSWD: "nexus123"
+  SONAR_URL: "http://10.242.146.136:9000"
+  SONAR_LOGIN: "5886a845a93e8441a1d1bf017035a12798b54aeb"
+  MICROSERVICE: "sofid-front"
+  TAG: "$MICROSERVICE:$VERSION"
+  PORT: "80"
+
+cache:
+  paths:
+  - node-modules/
+
+stages:
+  - build
+  - sonar-analysis
+  - docker-image
+  - push-to-nexus
+  - deploy
+  - test-zaproxy
+  
+build-nomad-fe:
+  stage: build
+  script:
+    - npm install   .
+    - npm run build --prod
+  only:
+    - master
+
+SAST_sonarqube:
+  stage: sonar-analysis
+  variables:
+    GIT_STRATEGY: none
+  dependencies:
+    - build-nomad-fe
+  allow_failure: true
+  script:
+    - sonar-scanner  -Dsonar.host.url="$SONAR_URL" -Dsonar.login="$SONAR_LOGIN" -Dsonar.projectKey="$CI_PROJECT_NAME" -Dsonar.sources="$SOURCES_DIR" -Dsonar.exclusions="$SONAR_EXCLUSIONS_DIR" -Dsonar.java.binaries=$OUTPUT_DIR -Dsonar.java.libraries="$OUTPUT_DIR" -Dsonar.java.source="$JAVA_SOURCE_VERSION" -Dsonar.gitlab.commit_sha="$CI_COMMIT_SHA" -Dsonar.gitlab.ref_name="$CI_COMMIT_REF_NAME" -Dsonar.gitlab.project_id="$CI_PROJECT_ID" -Dsonar.gitlab.failure_notification_mode=commit-status -Dsonar.gitlab.ping_user=true 
+  only:
+    - masters
+#deploy-to-k8S:
+#  stage: deploy
+#  script:
+#    - kubectl apply -f deployment-manifest.yaml
+#  only:
+#    - master
+
+build_docker-image:
+  stage: docker-image
+  variables:
+    GIT_STRATEGY: none
+  dependencies:
+    - build-nomad-fe
+#  allow_failure: true
+  script: 
+    - docker  build -t "$TAG"  .
+    - docker tag "$TAG" "$REGISTRY_push/$TAG"
+  only: 
+    - master
+
+
+deploy-to-k8S:
+  stage: deploy
+  script:
+#    - kubectl apply -f deployment-manifest.yaml
+#    - docker container stop sofid-front
+#    - docker run --rm -d  -p 80:80 --name sofid-front "$REGISTRY_push/$TAG"
+    - chmod +x docker-deploy.sh 
+    - ./docker-deploy.sh "$MICROSERVICE"  "$PORT"  "$REGISTRY_push" "$TAG"
+  only:
+    - master
+
+
+#push_image_to-registry:
+#  stage: push-to-nexus
+#  script: 
+#    - docker login -u "$NEXUS_USER" -p "$NEXUS_PASSWD" "$REGISTRY_push"
+#    - docker push "$REGISTRY_push/$TAG"
+#  only:
+#    - master
+
+
+zaproxy:
+  stage: test-zaproxy
+  script:
+  - docker run --interactive --network host --rm --volume /zap:/output -w /output registry.gitlab.com/gitlab-org/security-products/dast:latest /analyze -t http://10.242.146.134:80
+  only:
+    - masters
+

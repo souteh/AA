@@ -1,0 +1,11 @@
+@import "../../../assets/scss/variables";
+:host{
+    .footer-content{
+        background-color: $functional-color-grey-8 !important;
+    }
+    footer{
+        min-height:60px;
+        
+    }
+    
+}

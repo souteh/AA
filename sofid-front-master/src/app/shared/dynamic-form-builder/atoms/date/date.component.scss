@@ -1,0 +1,62 @@
+@import "../../../../../assets/scss/variables";
+.calendar {
+  position: absolute;
+  right: 0px;
+}
+::ng-deep {
+  .owl-dt-calendar-table {
+    .owl-dt-calendar-header .owl-dt-weekdays th {
+      font-weight: 700;
+      color: $black;
+      font-size: 0.9rem;
+    }
+    .owl-dt-calendar-cell {
+      font-weight: 700;
+      color: $black;
+      font-size: 1.1rem !important;
+    }
+    .owl-dt-calendar-cell-selected {
+      background-color: $primary-color;
+    }
+    .owl-dt-calendar-cell-content {
+      border-radius: 0px;
+    }
+    .owl-dt-calendar-cell-today:not(.owl-dt-calendar-cell-selected) {
+      border: 2px solid $functional-color-grey-4;
+    }
+    .owl-dt-calendar-cell-in-range {
+      background-color: $functional-color-grey-6;
+    }
+  }
+  .owl-dt-container-info .owl-dt-container-range .owl-dt-container-range-content {
+    color: $black;
+    font-weight: 700;
+  }
+  .owl-dt-control {
+    color: $black;
+    font-weight: 700;
+  }
+
+  .cdk-overlay-container {
+    position: fixed;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    position: absolute;
+    z-index: 9999999 !important;
+  }
+  .cdk-global-overlay-wrapper,
+  .cdk-overlay-container {
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    position: absolute;
+    z-index: 9999999 !important;
+  }
+}

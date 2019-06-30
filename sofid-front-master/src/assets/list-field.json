@@ -1,0 +1,240 @@
+[
+  {
+    "id": 1,
+    "name": "Nom d'utilisateur",
+    "fieldType": "TEXT",
+    "position": {
+      "line": 1,
+      "column": 1
+    },
+    "isEnabled": true,
+    "isVisible": true,
+    "isMandatory": true,
+    "isExportable": true,
+    "isMain": true
+  },
+  {
+    "id": 2,
+    "name": "Mot de passe",
+    "fieldType": "PASSWORD",
+    "position": {
+      "line": 1,
+      "column": 2
+    },
+    "isEnabled": true,
+    "isVisible": true,
+    "isMandatory": true,
+    "isExportable": false,
+    "isMain": true
+  },
+  {
+    "id": 3,
+    "name": "Code pin",
+    "fieldType": "PIN_CODE",
+    "position": {
+      "line": 1,
+      "column": 3
+    },
+    "isEnabled": true,
+    "isVisible": true,
+    "isMandatory": true,
+    "isExportable": false,
+    "isMain": true
+  },
+  {
+    "id": 4,
+    "name": "Prénom",
+    "fieldType": "TEXT",
+    "position": {
+      "line": 2,
+      "column": 1
+    },
+    "isEnabled": true,
+    "isVisible": true,
+    "isMandatory": true,
+    "isExportable": true,
+    "isMain": true
+  },
+  {
+    "id": 5,
+    "name": "Nom",
+    "fieldType": "TEXT",
+    "position": {
+      "line": 2,
+      "column": 2
+    },
+    "isEnabled": true,
+    "isVisible": true,
+    "isMandatory": true,
+    "isExportable": true,
+    "isMain": true
+  },
+  {
+    "id": 6,
+    "name": "N° de contact #1",
+    "fieldType": "TEXT",
+    "position": {
+      "line": 2,
+      "column": 3
+    },
+    "isEnabled": true,
+    "isVisible": true,
+    "isMandatory": true,
+    "isExportable": true,
+    "isMain": true
+  },
+  {
+    "id": 7,
+    "name": "N° de contact #2",
+    "fieldType": "TEXT",
+    "position": {
+      "line": 2,
+      "column": 4
+    },
+    "isEnabled": true,
+    "isVisible": true,
+    "isMandatory": false,
+    "isExportable": false,
+    "isMain": true
+  },
+  {
+    "id": 8,
+    "name": "Email",
+    "fieldType": "TEXT",
+    "position": {
+      "line": 3,
+      "column": 1
+    },
+    "isEnabled": true,
+    "isVisible": true,
+    "isMandatory": false,
+    "isExportable": false,
+    "isMain": true
+  },
+  {
+    "id": 9,
+    "name": "Adresse",
+    "fieldType": "TEXT",
+    "position": {
+      "line": 3,
+      "column": 2
+    },
+    "isEnabled": true,
+    "isVisible": true,
+    "isMandatory": false,
+    "isExportable": false,
+    "isMain": true
+  },
+  {
+    "id": 10,
+    "name": "Activé",
+    "fieldType": "CHECKBOX",
+    "position": {
+      "line": 4,
+      "column": 1
+    },
+    "isEnabled": true,
+    "isVisible": true,
+    "isMandatory": false,
+    "isExportable": true,
+    "isMain": true
+  },
+  {
+    "id": 11,
+    "name": "Bloqué",
+    "fieldType": "CHECKBOX",
+    "position": {
+      "line": 4,
+      "column": 2
+    },
+    "isEnabled": true,
+    "isVisible": true,
+    "isMandatory": false,
+    "isExportable": true,
+    "isMain": true
+  },
+  {
+    "id": 12,
+    "name": "IMEI",
+    "fieldType": "TEXT",
+    "position": {
+      "line": 4,
+      "column": 3
+    },
+    "isEnabled": true,
+    "isVisible": true,
+    "isMandatory": false,
+    "isExportable": false,
+    "isMain": true
+  },
+  {
+    "id": 13,
+    "name": "IMSI",
+    "fieldType": "TEXT",
+    "position": {
+      "line": 4,
+      "column": 4
+    },
+    "isEnabled": true,
+    "isVisible": true,
+    "isMandatory": false,
+    "isExportable": false,
+    "isMain": true
+  },
+  {
+    "id": 14,
+    "name": "Rôle",
+    "fieldType": "SELECT",
+    "position": {
+      "line": 5,
+      "column": 1
+    },
+    "isEnabled": true,
+    "isVisible": true,
+    "isMandatory": true,
+    "isExportable": true,
+    "isMain": true
+  },
+  {
+    "id": 15,
+    "name": "Accès web",
+    "fieldType": "CHECKBOX",
+    "position": {
+      "line": 5,
+      "column": 2
+    },
+    "isEnabled": true,
+    "isVisible": true,
+    "isMandatory": false,
+    "isExportable": true,
+    "isMain": true
+  },
+  {
+    "id": 16,
+    "name": "Accès mobile",
+    "fieldType": "CHECKBOX",
+    "position": {
+      "line": 5,
+      "column": 3
+    },
+    "isEnabled": true,
+    "isVisible": true,
+    "isMandatory": false,
+    "isExportable": true,
+    "isMain": true
+  },
+  {
+    "id": 17,
+    "name": "Accès USSD",
+    "fieldType": "CHECKBOX",
+    "position": {
+      "line": 5,
+      "column": 4
+    },
+    "isEnabled": true,
+    "isVisible": true,
+    "isMandatory": false,
+    "isExportable": true,
+    "isMain": true
+  }
+]
