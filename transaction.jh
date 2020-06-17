@@ -1,0 +1,98 @@
+entity Association12 {
+	identifiantconc Long
+}
+
+entity Catonlinecanalenum {
+	pel String maxlength(254),
+	ptel String maxlength(254)
+}
+
+entity Clientglentity {
+	nom String maxlength(254),
+	prenom String maxlength(254),
+	cin String maxlength(254),
+	telephone String maxlength(254),
+	commentaire String maxlength(254),
+	id Integer required
+}
+
+entity Formulationentity {
+	identifiantconc Long required,
+	idformulation Long,
+	codeproduit String maxlength(254),
+	formcomplete Boolean,
+	designation String maxlength(254),
+	misecomb String maxlength(254),
+	misetotale Integer,
+	numform Integer
+}
+
+entity Modeoperationenum {
+	automatique String maxlength(254),
+	manuel String maxlength(254)
+}
+
+entity Pdventity {
+	idpdv Long required,
+	referencepdv String maxlength(254)
+}
+
+entity Statutticketenum {
+	valide String maxlength(254),
+	annule String maxlength(254),
+	paye String maxlength(254),
+	rembourse String maxlength(254)
+}
+
+entity Typeannulationenum {
+	client String maxlength(254),
+	machine String maxlength(254),
+	exceptionnelle String maxlength(254),
+	systeme String maxlength(254)
+}
+
+entity Typecanalenum {
+	terminal String maxlength(254),
+	online String maxlength(254)
+}
+
+entity Typeoperationenum {
+	pari String maxlength(254),
+	annulation String maxlength(254),
+	paiement String maxlength(254)
+}
+
+entity Typepaiementenum {
+	total String maxlength(254),
+	avance String maxlength(254)
+}
+
+entity Typeterminalenum {
+	t2020 String maxlength(254),
+	t2030 String maxlength(254),
+	b2062 String maxlength(254),
+	pda String maxlength(254)
+}
+
+
+
+// Relations
+relationship ManyToOne {
+	Association12{id} to Clientglentity
+}
+
+
+// Options
+service * with serviceClass
+paginate * with pagination
+dto * with mapstruct
+filter *
+
+
+
+
+// Options
+service * with serviceClass
+paginate * with pagination
+filter *
+
